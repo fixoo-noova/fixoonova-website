@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Layout } from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import HomePage from "@/routes/index";
 import AboutPage from "@/routes/about";
 import ServicesPage from "@/routes/services";
@@ -43,6 +44,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <PageMeta />
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
