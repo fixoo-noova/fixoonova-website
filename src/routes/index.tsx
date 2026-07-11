@@ -949,7 +949,10 @@ export default function IndexPage() {
       {/* HOME CONTACT */}
       <section data-reveal-group className="py-24 px-6 lg:px-10 max-w-7xl mx-auto" id="home-contact">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div data-reveal-card className="reveal-card">
+          <div
+            data-reveal-card
+            className="reveal-card lg:sticky lg:top-[4.5rem] lg:self-start"
+          >
             <span className="eyebrow">CONTACT US</span>
             <h2 className="font-display text-4xl sm:text-5xl mt-3">
               Tell us what you need. We will get back <span className="text-gradient-gold">today</span>.
@@ -965,7 +968,7 @@ export default function IndexPage() {
             </div>
           </div>
 
-          <div data-reveal-card className="reveal-card premium-card p-6 sm:p-8">
+          <div data-reveal-card className="reveal-card premium-card p-6 sm:p-8 lg:min-h-[32rem]">
             <form
               className="space-y-4"
               onSubmit={(e) => {
@@ -1004,7 +1007,7 @@ export default function IndexPage() {
                 <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                 <textarea
                   name="home-message"
-                  rows={4}
+                  rows={7}
                   required
                   className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
                 />
