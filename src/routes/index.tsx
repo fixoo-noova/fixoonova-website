@@ -352,9 +352,6 @@ export default function IndexPage() {
 
           <div className="relative mx-auto grid min-h-screen w-full max-w-7xl gap-10 px-6 py-24 sm:px-8 lg:grid-cols-12 lg:px-10">
             <div className="lg:col-span-5 lg:self-center">
-              <span className="inline-flex rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/90">
-                UAE Property Maintenance
-              </span>
 
               <h1 className="mt-5 font-display text-5xl font-bold leading-[0.98] text-white sm:text-6xl">
                 Premium Care For
@@ -362,8 +359,9 @@ export default function IndexPage() {
               </h1>
 
               <p className="mt-5 max-w-md text-sm leading-relaxed text-white/75 sm:text-base">
-                Certified technicians for cooling systems, pipe work and electrical faults — fast
-                response, transparent pricing and reliable workmanship across the UAE.
+                With more than 28 years in the industry, our certified technicians deliver cooling,
+                plumbing and electrical solutions — fast response, transparent pricing and reliable
+                workmanship across the UAE.
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2">
@@ -391,7 +389,7 @@ export default function IndexPage() {
 
               <div className="mt-8 grid max-w-md grid-cols-3 gap-3 rounded-2xl border border-white/15 bg-black/25 p-4 text-white backdrop-blur">
                 {[
-                  { label: "AC Units Serviced", value: "500+" },
+                  { label: "Years Experience", value: "28+" },
                   { label: "Emergency Line", value: "24/7" },
                   { label: "Happy Clients", value: "1K+" },
                 ].map((item) => (
@@ -444,6 +442,15 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
+
+          <Link
+            to="/about"
+            className="glow-border-banner relative z-10 mx-6 mb-6 flex min-h-12 items-center justify-center rounded-lg border border-primary/35 bg-black/30 px-5 py-3 text-center backdrop-blur-sm transition hover:border-primary/60 hover:bg-primary/10 sm:mx-8 md:absolute md:bottom-5 md:left-1/2 md:mx-0 md:w-[calc(100%-5rem)] md:max-w-7xl md:-translate-x-1/2 lg:px-10"
+          >
+            <span className="relative z-[1] text-sm font-semibold tracking-wide text-gradient-gold sm:text-base">
+              28+ Years of Property Maintenance Expertise
+            </span>
+          </Link>
         </div>
       </section>
       {/* VIDEO + BOOKING */}
@@ -852,11 +859,13 @@ export default function IndexPage() {
             A team that takes <span className="text-gradient-gold">ownership</span>.
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-8">
-            Every Fixoo Nova technician is vetted, trained and uniformed. We use premium tools,
-            document our work and stand behind every job with a written warranty.
+            With more than 28 years in property maintenance, every Fixoo Nova technician is vetted,
+            trained and uniformed. We use premium tools, document our work and stand behind every
+            job with a written warranty.
           </p>
           <ul className="space-y-3">
             {[
+              "28+ years of industry experience across the UAE",
               "Licensed and insured across all UAE emirates",
               "Transparent quotes — no hidden surprises",
               "Eco-friendly chemicals and cleaning agents",

@@ -7,15 +7,14 @@ export default function AboutPage() {
   return (
     <>
       <section className="px-6 lg:px-10 pt-24 pb-16 max-w-7xl mx-auto">
-        <span className="eyebrow">WHO WE ARE</span>
-        <h1 className="font-display text-5xl sm:text-6xl mt-4 mb-6 max-w-4xl leading-tight">
+        <h1 className="font-display text-5xl sm:text-6xl mt-5 mb-6 max-w-4xl leading-tight">
           Unifying the thread between people and their{" "}
           <span className="text-gradient-gold">comfort</span>.
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
-          Fixoo Nova was built to make life easy across the MENA region. We deliver exceptional
-          maintenance and technical services with the precision, transparency and care your property
-          deserves.
+          Fixoo Nova was built on more than 28 years of hands-on expertise in property maintenance
+          across the MENA region. We deliver exceptional AC, plumbing, electrical and technical
+          services with the precision, transparency and care your property deserves.
         </p>
       </section>
 
@@ -29,6 +28,30 @@ export default function AboutPage() {
             height={1080}
             className="w-full h-[360px] sm:h-[460px] object-cover"
           />
+        </div>
+      </section>
+
+      <section className="px-6 lg:px-10 pb-16 max-w-7xl mx-auto">
+        <div className="overflow-hidden rounded-3xl border border-primary/25 bg-[#0a1018] shadow-elegant">
+          <div className="grid items-center gap-8 p-8 sm:p-12 lg:grid-cols-[auto_1fr] lg:gap-14">
+            <div className="text-center lg:text-left">
+              <p className="font-display text-7xl leading-none text-gradient-gold sm:text-8xl">28+</p>
+              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+                Years of experience
+              </p>
+            </div>
+            <div>
+              <span className="eyebrow text-white/65">OUR LEGACY</span>
+              <h2 className="font-display mt-3 text-3xl text-white sm:text-4xl">
+                A name built on <span className="text-gradient-gold">decades of trust</span>.
+              </h2>
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
+                For over 28 years, we have served homeowners, landlords and businesses with
+                dependable property maintenance — from routine AC servicing and plumbing repairs to
+                electrical work and full building care throughout the UAE.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -71,9 +94,9 @@ export default function AboutPage() {
               All that we do, <span className="text-gradient-gold">we do well</span>.
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              We adopt a systematic strategy to plan every job — adding measurable value to your
-              property and your day. From the first call to the final inspection, our team operates
-              with discipline and care.
+              With more than 28 years in the field, we adopt a systematic strategy to plan every job
+              — adding measurable value to your property and your day. From the first call to the
+              final inspection, our team operates with discipline and care.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               As a Fixoo Nova client, you receive accurate reports on time. Our proactive support
@@ -83,7 +106,7 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { n: "10+", l: "Years of Craft" },
+              { n: "28+", l: "Years of Experience" },
               { n: "5,000+", l: "Jobs Completed" },
               { n: "98%", l: "Client Retention" },
               { n: "24/7", l: "Support" },
