@@ -25,7 +25,7 @@ function maintenancePlanClass(isActive: boolean, mobile = false) {
 export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 glass-nav border-b border-white/10">
+    <header className="sticky top-0 z-50 w-full glass-nav border-b border-white/10">
       <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-[4.5rem] flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
