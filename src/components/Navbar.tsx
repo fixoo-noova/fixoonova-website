@@ -1,15 +1,26 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Sparkles } from "lucide-react";
 import logo from "@/assets/fixoo-nova-logo.png";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/maintenance-plan", label: "Maintenance Plan" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+const maintenancePlanHref = "/maintenance-plan";
+
+function maintenancePlanClass(isActive: boolean, mobile = false) {
+  const base = mobile
+    ? "flex items-center justify-center gap-2 text-sm font-semibold py-3 px-4 rounded-lg transition"
+    : "inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-[13px] font-semibold tracking-wide transition";
+
+  return isActive
+    ? `${base} border-primary bg-primary/20 text-primary shadow-[0_0_20px_oklch(0.74_0.14_76/25%)]`
+    : `${base} border-primary/50 bg-primary/10 text-primary hover:border-primary/75 hover:bg-primary/15 hover:shadow-[0_0_20px_oklch(0.74_0.14_76/20%)]`;
+}
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -28,7 +39,7 @@ export function Navbar() {
             </span>
           </div>
         </Link>
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <NavLink
               key={l.href}
@@ -45,6 +56,13 @@ export function Navbar() {
               {l.label}
             </NavLink>
           ))}
+          <NavLink
+            to={maintenancePlanHref}
+            className={({ isActive }) => maintenancePlanClass(isActive)}
+          >
+            <Sparkles className="h-3.5 w-3.5" />
+            Maintenance Plan
+          </NavLink>
           <a href="tel:+971504156485" className="btn-primary text-[13px] py-2.5 px-5">
             <Phone className="h-3.5 w-3.5" /> Call Us
           </a>
@@ -77,6 +95,14 @@ export function Navbar() {
                 {l.label}
               </NavLink>
             ))}
+            <NavLink
+              to={maintenancePlanHref}
+              onClick={() => setOpen(false)}
+              className={({ isActive }) => maintenancePlanClass(isActive, true)}
+            >
+              <Sparkles className="h-4 w-4" />
+              Maintenance Plan
+            </NavLink>
             <a
               href="tel:+971504156485"
               className="btn-primary justify-center mt-3 text-sm"
