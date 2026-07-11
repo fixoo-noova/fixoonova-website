@@ -138,7 +138,7 @@ export default function MaintenancePlanPage() {
           <div>
             <span className="eyebrow">YEARLY MAINTENANCE OFFER</span>
             <h1 className="font-display mt-4 max-w-xl text-5xl leading-tight sm:text-6xl">
-              One plan.{" "}
+              Yealy plan.{" "}
               <span className="text-gradient-gold">Every service</span> your property needs.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
