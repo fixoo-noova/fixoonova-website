@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/fixoo-nova-logo.png";
 
 export function Footer() {
@@ -58,7 +58,7 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-white/80">
               <li className="flex items-start gap-3">
                 <Phone className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-                <span>+971 50 000 0000</span>
+                <span>+971 50 415 6485</span>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-4 w-4 mt-0.5 text-primary shrink-0" />
@@ -71,9 +71,12 @@ export function Footer() {
             </ul>
             <div className="mt-6 flex items-center gap-3">
               {[
-                { href: "https://www.instagram.com/", label: "Instagram", icon: Instagram },
-                { href: "https://www.facebook.com/", label: "Facebook", icon: Facebook },
-                { href: "https://www.linkedin.com/", label: "LinkedIn", icon: Linkedin },
+                { href: "https://www.instagram.com/fixoonova/", label: "Instagram", icon: Instagram },
+                {
+                  href: "https://www.facebook.com/profile.php?id=61591712577093",
+                  label: "Facebook",
+                  icon: Facebook,
+                },
               ].map((item) => (
                 <a
                   key={item.label}

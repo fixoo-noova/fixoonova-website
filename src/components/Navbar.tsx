@@ -45,7 +45,7 @@ export function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <a href="tel:+971500000000" className="btn-primary text-[13px] py-2.5 px-5">
+          <a href="tel:+971504156485" className="btn-primary text-[13px] py-2.5 px-5">
             <Phone className="h-3.5 w-3.5" /> Call Us
           </a>
         </div>
@@ -78,7 +78,7 @@ export function Navbar() {
               </NavLink>
             ))}
             <a
-              href="tel:+971500000000"
+              href="tel:+971504156485"
               className="btn-primary justify-center mt-3 text-sm"
               onClick={() => setOpen(false)}
             >

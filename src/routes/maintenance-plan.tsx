@@ -149,7 +149,7 @@ export default function MaintenancePlanPage() {
               <a href="#get-quote" className="btn-primary">
                 Get a Free Quote <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="tel:+971500000000" className="btn-outline">
+              <a href="tel:+971504156485" className="btn-outline">
                 <Phone className="h-4 w-4" /> Call Us
               </a>
             </div>
@@ -336,7 +336,7 @@ export default function MaintenancePlanPage() {
               quote — no obligation.
             </p>
             <div className="mt-8 space-y-3 text-sm text-muted-foreground">
-              <p>Phone: +971 50 000 0000</p>
+              <p>Phone: +971 50 415 6485</p>
               <p>Email: info@fixoonova.ae</p>
               <p>
                 Prefer to browse first?{" "}
