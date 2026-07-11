@@ -1,8 +1,14 @@
 import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
-import { useState } from "react";
+import { FORM_SOURCES } from "@/lib/emailjs";
+import {
+  FormSubmitFeedback,
+  FormSuccessMessage,
+  useContactFormSubmit,
+} from "@/hooks/useContactFormSubmit";
 
 export default function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const contactForm = useContactFormSubmit(FORM_SOURCES.contactPage);
+
   return (
     <>
       <section className="px-6 lg:px-10 pt-24 pb-12 max-w-7xl mx-auto">
@@ -73,10 +79,7 @@ export default function ContactPage() {
         </div>
 
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          onSubmit={(e) => contactForm.handleSubmit(e)}
           className="lg:col-span-3 p-8 premium-card space-y-5"
         >
           <div className="grid sm:grid-cols-2 gap-5">
@@ -98,10 +101,17 @@ export default function ContactPage() {
           </div>
           <button
             type="submit"
-            className="btn-primary w-full justify-center"
+            disabled={contactForm.isLoading}
+            className="btn-primary w-full justify-center disabled:opacity-70"
           >
-            {sent ? "Thank you — we'll be in touch" : "Send Message"}
+            {contactForm.isLoading
+              ? "Sending..."
+              : contactForm.isSuccess
+                ? "Thank you — we'll be in touch"
+                : "Send Message"}
           </button>
+          <FormSubmitFeedback error={contactForm.error} />
+          <FormSuccessMessage show={contactForm.isSuccess} />
         </form>
       </section>
     </>

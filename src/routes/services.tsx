@@ -16,6 +16,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { FORM_SOURCES } from "@/lib/emailjs";
+import {
+  FormSubmitFeedback,
+  FormSuccessMessage,
+  useContactFormSubmit,
+} from "@/hooks/useContactFormSubmit";
 import ac from "@/assets/service-ac.jpg";
 import reno from "@/assets/service-renovation.jpg";
 import clean from "@/assets/service-cleaning.jpg";
@@ -124,14 +130,14 @@ const popupServiceOptions = [
 ];
 
 export default function ServicesPage() {
-  const [sent, setSent] = useState(false);
+  const inquiryForm = useContactFormSubmit(FORM_SOURCES.servicesInquiry);
+  const popupForm = useContactFormSubmit(FORM_SOURCES.servicesPopup);
   const [showServicePopup, setShowServicePopup] = useState(false);
   const [selectedPopupService, setSelectedPopupService] = useState("");
-  const [popupSent, setPopupSent] = useState(false);
 
   const openServicePopup = (service: string) => {
     setSelectedPopupService(service);
-    setPopupSent(false);
+    popupForm.reset();
     setShowServicePopup(true);
   };
 
@@ -150,10 +156,7 @@ export default function ServicesPage() {
 
             <form
               className="mt-6 space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setPopupSent(true);
-              }}
+              onSubmit={(e) => popupForm.handleSubmit(e)}
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label="Name" name="popup-name" required />
@@ -192,9 +195,19 @@ export default function ServicesPage() {
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full justify-center">
-                {popupSent ? "Request Received" : "Submit Request"}
+              <button
+                type="submit"
+                disabled={popupForm.isLoading}
+                className="btn-primary w-full justify-center disabled:opacity-70"
+              >
+                {popupForm.isLoading
+                  ? "Sending..."
+                  : popupForm.isSuccess
+                    ? "Request Received"
+                    : "Submit Request"}
               </button>
+              <FormSubmitFeedback error={popupForm.error} />
+              <FormSuccessMessage show={popupForm.isSuccess} />
             </form>
           </div>
         </DialogContent>
@@ -284,10 +297,7 @@ export default function ServicesPage() {
           </div>
 
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
+            onSubmit={(e) => inquiryForm.handleSubmit(e)}
             className="rounded-3xl border border-primary/20 bg-card p-8 lg:col-span-3 shadow-elegant"
           >
             <div className="grid gap-5 sm:grid-cols-2">
@@ -328,9 +338,19 @@ export default function ServicesPage() {
               />
             </div>
 
-            <button type="submit" className="btn-primary mt-6 w-full justify-center sm:w-auto">
-              {sent ? "Thanks, request received" : "Submit Request"}
+            <button
+              type="submit"
+              disabled={inquiryForm.isLoading}
+              className="btn-primary mt-6 w-full justify-center sm:w-auto disabled:opacity-70"
+            >
+              {inquiryForm.isLoading
+                ? "Sending..."
+                : inquiryForm.isSuccess
+                  ? "Thanks, request received"
+                  : "Submit Request"}
             </button>
+            <FormSubmitFeedback error={inquiryForm.error} />
+            <FormSuccessMessage show={inquiryForm.isSuccess} />
           </form>
         </div>
       </section>

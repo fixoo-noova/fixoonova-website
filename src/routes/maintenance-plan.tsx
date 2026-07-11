@@ -1,4 +1,9 @@
-import { useState } from "react";
+import { FORM_SOURCES } from "@/lib/emailjs";
+import {
+  FormSubmitFeedback,
+  FormSuccessMessage,
+  useContactFormSubmit,
+} from "@/hooks/useContactFormSubmit";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -128,7 +133,7 @@ const faqs = [
 ];
 
 export default function MaintenancePlanPage() {
-  const [sent, setSent] = useState(false);
+  const quoteForm = useContactFormSubmit(FORM_SOURCES.maintenancePlan);
 
   return (
     <>
@@ -348,11 +353,7 @@ export default function MaintenancePlanPage() {
           </div>
 
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-              (e.currentTarget as HTMLFormElement).reset();
-            }}
+            onSubmit={(e) => quoteForm.handleSubmit(e)}
             className="premium-card space-y-5 p-8"
           >
             <div className="grid gap-5 sm:grid-cols-2">
@@ -411,9 +412,19 @@ export default function MaintenancePlanPage() {
                 className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
               />
             </div>
-            <button type="submit" className="btn-primary w-full justify-center">
-              {sent ? "Request Sent — we'll be in touch" : "Request Free Quote"}
+            <button
+              type="submit"
+              disabled={quoteForm.isLoading}
+              className="btn-primary w-full justify-center disabled:opacity-70"
+            >
+              {quoteForm.isLoading
+                ? "Sending..."
+                : quoteForm.isSuccess
+                  ? "Request Sent — we'll be in touch"
+                  : "Request Free Quote"}
             </button>
+            <FormSubmitFeedback error={quoteForm.error} />
+            <FormSuccessMessage show={quoteForm.isSuccess} />
           </form>
         </div>
       </section>

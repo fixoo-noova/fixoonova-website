@@ -24,6 +24,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { FORM_SOURCES } from "@/lib/emailjs";
+import {
+  FormSubmitFeedback,
+  FormSuccessMessage,
+  useContactFormSubmit,
+} from "@/hooks/useContactFormSubmit";
 import heroBuilding from "@/assets/hero-building.jpg";
 import ac from "@/assets/service-ac.jpg"; 
 import reno from "@/assets/service-renovation.jpg";
@@ -197,9 +203,9 @@ const heroSlides = [
 
 export default function IndexPage() {
   const [showPopup, setShowPopup] = useState(false);
-  const [popupSent, setPopupSent] = useState(false);
-  const [homeContactSent, setHomeContactSent] = useState(false);
-  const [videoBookingSent, setVideoBookingSent] = useState(false);
+  const popupForm = useContactFormSubmit(FORM_SOURCES.homePopup);
+  const videoBookingForm = useContactFormSubmit(FORM_SOURCES.homeVideoBooking);
+  const homeContactForm = useContactFormSubmit(FORM_SOURCES.homeContact);
   const [heroApi, setHeroApi] = useState<CarouselApi>();
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
 
@@ -293,10 +299,7 @@ export default function IndexPage() {
 
             <form
               className="mt-6 space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setPopupSent(true);
-              }}
+              onSubmit={(e) => popupForm.handleSubmit(e)}
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <PopupField label="Name" name="popup-name" required />
@@ -332,9 +335,19 @@ export default function IndexPage() {
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full justify-center">
-                {popupSent ? "Request Received" : "Submit Request"}
+              <button
+                type="submit"
+                disabled={popupForm.isLoading}
+                className="btn-primary w-full justify-center disabled:opacity-70"
+              >
+                {popupForm.isLoading
+                  ? "Sending..."
+                  : popupForm.isSuccess
+                    ? "Request Received"
+                    : "Submit Request"}
               </button>
+              <FormSubmitFeedback error={popupForm.error} />
+              <FormSuccessMessage show={popupForm.isSuccess} />
             </form>
           </div>
         </DialogContent>
@@ -489,11 +502,7 @@ export default function IndexPage() {
 
               <form
                 className="mt-4 space-y-3"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setVideoBookingSent(true);
-                  (e.currentTarget as HTMLFormElement).reset();
-                }}
+                onSubmit={(e) => videoBookingForm.handleSubmit(e)}
               >
                 <div className="grid gap-3 sm:grid-cols-2">
                   <PopupField label="Name" name="video-name" required compact />
@@ -532,14 +541,24 @@ export default function IndexPage() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary w-full justify-center py-2.5 text-sm">
-                  {videoBookingSent ? "Booking Request Sent" : "Book Now"}
+                <button
+                  type="submit"
+                  disabled={videoBookingForm.isLoading}
+                  className="btn-primary w-full justify-center py-2.5 text-sm disabled:opacity-70"
+                >
+                  {videoBookingForm.isLoading
+                    ? "Sending..."
+                    : videoBookingForm.isSuccess
+                      ? "Booking Request Sent"
+                      : "Book Now"}
                 </button>
 
-                {videoBookingSent ? (
+                {videoBookingForm.isSuccess ? (
                   <p className="text-center text-xs text-muted-foreground">
                     Thank you — we will contact you shortly to confirm your visit.
                   </p>
+                ) : videoBookingForm.isError ? (
+                  <FormSubmitFeedback error={videoBookingForm.error} />
                 ) : (
                   <p className="flex items-center justify-center gap-2 text-center text-xs text-muted-foreground">
                     <Phone className="h-3.5 w-3.5 text-primary" />
@@ -971,11 +990,7 @@ export default function IndexPage() {
           <div data-reveal-card className="reveal-card premium-card p-6 sm:p-8 lg:min-h-[32rem]">
             <form
               className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setHomeContactSent(true);
-                (e.currentTarget as HTMLFormElement).reset();
-              }}
+              onSubmit={(e) => homeContactForm.handleSubmit(e)}
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <PopupField label="Name" name="home-name" required />
@@ -1013,14 +1028,19 @@ export default function IndexPage() {
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full justify-center">
-                {homeContactSent ? "Request Sent" : "Send Request"}
+              <button
+                type="submit"
+                disabled={homeContactForm.isLoading}
+                className="btn-primary w-full justify-center disabled:opacity-70"
+              >
+                {homeContactForm.isLoading
+                  ? "Sending..."
+                  : homeContactForm.isSuccess
+                    ? "Request Sent"
+                    : "Send Request"}
               </button>
-              {homeContactSent ? (
-                <p className="text-center text-sm text-muted-foreground">
-                  Thank you. Our team will contact you shortly.
-                </p>
-              ) : null}
+              <FormSubmitFeedback error={homeContactForm.error} />
+              <FormSuccessMessage show={homeContactForm.isSuccess} />
             </form>
           </div>
         </div>
