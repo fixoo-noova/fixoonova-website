@@ -47,13 +47,13 @@ export default function ContactPage() {
       <section className="px-6 lg:px-10 pb-24 max-w-7xl mx-auto grid lg:grid-cols-5 gap-8">
         <div className="lg:col-span-2 space-y-4">
           {[
-            { icon: Phone, t: "Phone", v: "+971 50 415 6485", h: "tel:+971504156485" },
+            { icon: Phone, t: "Phone", v: "+971 50 800 1238", h: "tel:+971508001238" },
             { icon: Mail, t: "Email", v: "info@fixoonova.ae", h: "mailto:info@fixoonova.ae" },
             {
               icon: MessageSquare,
               t: "WhatsApp",
-              v: "+971 50 415 6485",
-              h: "https://wa.me/971504156485",
+              v: "+971 50 800 1238",
+              h: "https://wa.me/971508001238",
             },
             { icon: MapPin, t: "Address", v: "Dubai, United Arab Emirates" },
             { icon: Clock, t: "Hours", v: "24 / 7 — Always on call" },

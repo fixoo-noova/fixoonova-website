@@ -63,7 +63,7 @@ export function Navbar() {
             <Sparkles className="h-3.5 w-3.5" />
             Maintenance Plan
           </NavLink>
-          <a href="tel:+971504156485" className="btn-primary text-[13px] py-2.5 px-5">
+          <a href="tel:+971508001238" className="btn-primary text-[13px] py-2.5 px-5">
             <Phone className="h-3.5 w-3.5" /> Call Us
           </a>
         </div>
@@ -104,7 +104,7 @@ export function Navbar() {
               Maintenance Plan
             </NavLink>
             <a
-              href="tel:+971504156485"
+              href="tel:+971508001238"
               className="btn-primary justify-center mt-3 text-sm"
               onClick={() => setOpen(false)}
             >

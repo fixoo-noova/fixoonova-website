@@ -140,7 +140,7 @@ function getEmailJsConfig(templateKind: EmailTemplateKind) {
 
   if (!serviceId || !publicKey) {
     throw new Error(
-      "Email service is not configured yet. Please call us directly at +971 50 415 6485.",
+      "Email service is not configured yet. Please call us directly at +971 50 800 1238.",
     );
   }
 
@@ -148,7 +148,7 @@ function getEmailJsConfig(templateKind: EmailTemplateKind) {
     const templateLabel =
       templateKind === "maintenance" ? "maintenance plan template" : "general enquiry template";
     throw new Error(
-      `Email ${templateLabel} is not configured yet. Please call us directly at +971 50 415 6485.`,
+      `Email ${templateLabel} is not configured yet. Please call us directly at +971 50 800 1238.`,
     );
   }
 

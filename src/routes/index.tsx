@@ -563,8 +563,8 @@ export default function IndexPage() {
                   <p className="flex items-center justify-center gap-2 text-center text-xs text-muted-foreground">
                     <Phone className="h-3.5 w-3.5 text-primary" />
                     Prefer to call?{" "}
-                    <a href="tel:+971504156485" className="font-medium text-primary hover:underline">
-                      +971 50 415 6485
+                    <a href="tel:+971508001238" className="font-medium text-primary hover:underline">
+                      +971 50 800 1238
                     </a>
                   </p>
                 )}
@@ -684,7 +684,7 @@ export default function IndexPage() {
                   <Link to="/maintenance-plan" className="btn-primary">
                     View Plans & Pricing <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <a href="tel:+971504156485" className="btn-outline">
+                  <a href="tel:+971508001238" className="btn-outline">
                     <Phone className="h-4 w-4" /> Get a Quote
                   </a>
                 </div>
@@ -957,8 +957,8 @@ export default function IndexPage() {
               From a single repair to a complete renovation — book a hassle-free appointment with
               our team today.
             </p>
-            <a href="tel:+971504156485" className="btn-primary">
-              <Phone className="h-4 w-4" /> Call +971 50 415 6485
+            <a href="tel:+971508001238" className="btn-primary">
+              <Phone className="h-4 w-4" /> Call +971 50 800 1238
             </a>
           </div>
         </div>
@@ -981,8 +981,8 @@ export default function IndexPage() {
               and contact you with the next steps and a clear estimate.
             </p>
             <div className="mt-8 space-y-3 text-sm text-muted-foreground">
-              <p>Phone: +971 50 415 6485</p>
-              <p>Email: hello@fixoonova.ae</p>
+              <p>Phone: +971 50 800 1238</p>
+              <p>Email: info@fixoonova.ae</p>
               <p>Coverage: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah and beyond.</p>
             </div>
           </div>
