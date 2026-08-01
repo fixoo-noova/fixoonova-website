@@ -76,33 +76,99 @@ const servicesVideoSrc = servicesVideo;
 const services = [
   {
     img: ac,
-    title: "AC & HVAC",
-    desc: "Duct cleaning, servicing and full HVAC maintenance for healthy, cool spaces.",
+    title: "AC Services",
+    desc: "Professional AC services in Dubai including AC cleaning, duct sanitization, gas top-up, repair and full HVAC maintenance for villas, apartments and commercial buildings — with dedicated support across Dubai South.",
   },
   {
     img: electrician,
-    title: "Electrical & ELV",
-    desc: "Wiring, panels, intercom, CCTV and access control by certified engineers.",
+    title: "Electrical Services",
+    desc: "Certified electrical services in Dubai covering wiring, panels, lighting, ELV systems, intercom, CCTV and access control for residential and commercial properties.",
   },
   {
     img: plumbingImg,
-    title: "Plumbing",
-    desc: "Leak repair, fixture upgrades, water tank cleaning and full bathroom retrofits.",
+    title: "Plumbing Services",
+    desc: "Professional plumbing services including leak repairs, drainage maintenance, drain cleaning, pipe replacement and emergency plumbing for villas, apartments and commercial buildings across Dubai.",
   },
   {
     img: reno,
-    title: "Renovation",
-    desc: "Villa, apartment, office and bathroom transformations with luxurious finishes.",
+    title: "Renovation Services",
+    desc: "Complete renovation services in Dubai for villas, apartments, offices and bathrooms — premium finishes and end-to-end project management from survey to handover.",
   },
   {
     img: clean,
-    title: "Deep Cleaning",
-    desc: "Sofa, mattress, carpet, curtain and full deep-clean for homes and offices.",
+    title: "Deep Cleaning Services",
+    desc: "Thorough deep cleaning in Dubai for homes and offices — sofa, mattress, carpet, curtain and full property sanitization using eco-friendly agents.",
   },
   {
     img: kitchen,
-    title: "Kitchen Upgrades",
-    desc: "Bespoke joinery, marble surfaces and modern fittings, installed end-to-end.",
+    title: "Handyman & Kitchen Upgrades",
+    desc: "Reliable handyman services in Dubai plus bespoke kitchen joinery, marble surfaces and modern fittings installed end-to-end by skilled technicians.",
+  },
+];
+
+const areasWeServe = [
+  "Dubai South",
+  "Discovery Gardens",
+  "Villanova",
+  "Damac Hills 2",
+  "Dubai Investment Park (DIP)",
+  "JVC",
+  "JVT",
+  "Dubai Marina",
+  "Downtown Dubai",
+  "Business Bay",
+  "Al Barsha",
+  "Palm Jumeirah",
+];
+
+const homeFaqs = [
+  {
+    q: "Do you provide building maintenance in Dubai South?",
+    a: "Yes. Fixoo Nova is a building maintenance company in Dubai with dedicated teams serving Dubai South and nearby communities including DIP, Villanova, Discovery Gardens and Damac Hills 2.",
+  },
+  {
+    q: "Do you offer 24/7 emergency maintenance?",
+    a: "Yes. We provide 24/7 property maintenance support for urgent AC, plumbing, electrical and handyman issues across Dubai.",
+  },
+  {
+    q: "Can I book an Annual Maintenance Contract?",
+    a: "Absolutely. Our Annual Maintenance Contract (AMC) in Dubai covers scheduled AC servicing, plumbing checks, electrical inspections and general property upkeep under one plan.",
+  },
+  {
+    q: "Do you provide handyman services?",
+    a: "Yes. We offer handyman services in Dubai for small repairs, fixture fixes, fittings and day-to-day property maintenance for homes and offices.",
+  },
+  {
+    q: "Do you serve commercial buildings?",
+    a: "Yes. We deliver building maintenance for commercial and industrial properties across Dubai, including offices, retail spaces and multi-unit buildings.",
+  },
+  {
+    q: "Which Dubai communities do you cover?",
+    a: "We frequently serve Dubai South, DIP, Villanova, Discovery Gardens, Damac Hills 2, Expo City, JVC, JVT, Business Bay, Dubai Marina, Palm Jumeirah, Downtown and Al Barsha. We also serve other Emirates upon request.",
+  },
+  {
+    q: "Do you offer AC cleaning and AC services in Dubai?",
+    a: "Yes. Our AC services in Dubai include AC cleaning, duct cleaning, repair, gas top-up and preventive HVAC maintenance for residential and commercial units.",
+  },
+  {
+    q: "Can I get plumbing and drain cleaning in Dubai?",
+    a: "Yes. We provide plumbing services and drain cleaning across Dubai — leak repairs, drainage maintenance, pipe work and emergency call-outs for villas and apartments.",
+  },
+  {
+    q: "Do you provide electrical services in Dubai?",
+    a: "Yes. Our electrical services cover wiring, panels, lighting, ELV, CCTV and access control for homes and commercial properties in Dubai and Dubai South.",
+  },
+  {
+    q: "How quickly can a technician visit my property?",
+    a: "Most bookings are confirmed within the hour during working hours. For Dubai South and nearby areas we prioritize fast response times, with 24/7 emergency support available.",
+  },
+  {
+    q: "Do you offer renovation and deep cleaning in Dubai?",
+    a: "Yes. Alongside core building maintenance, we provide renovation and deep cleaning services for villas, apartments and offices across Dubai.",
+  },
+  {
+    q: "Is Fixoo Nova licensed and insured?",
+    a: "Yes. We are a licensed and insured building maintenance company in Dubai, with vetted technicians and transparent quotes on every job.",
   },
 ];
 
@@ -246,6 +312,33 @@ export default function IndexPage() {
   }, [heroApi]);
 
   useEffect(() => {
+    const scriptId = "fixoo-nova-faq-schema";
+    const existing = document.getElementById(scriptId);
+    if (existing) existing.remove();
+
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.type = "application/ld+json";
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: homeFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a,
+        },
+      })),
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      document.getElementById(scriptId)?.remove();
+    };
+  }, []);
+
+  useEffect(() => {
     const revealGroups = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal-group]"));
 
     if (!revealGroups.length) {
@@ -365,16 +458,26 @@ export default function IndexPage() {
 
           <div className="relative mx-auto grid min-h-screen w-full max-w-7xl gap-10 px-6 py-24 sm:px-8 lg:grid-cols-12 lg:px-10">
             <div className="lg:col-span-5 lg:self-center">
+              <span className="inline-flex rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/90">
+                Trusted Building Maintenance Company in Dubai
+              </span>
 
-              <h1 className="mt-5 font-display text-5xl font-bold leading-[0.98] text-white sm:text-6xl">
-                Premium Care For
-                <span className="block text-gradient-gold">Every Property.</span>
+              <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-[3.25rem]">
+                Building Maintenance{" "}
+                <span className="text-gradient-gold">Company in Dubai</span>
               </h1>
 
-              <p className="mt-5 max-w-md text-sm leading-relaxed text-white/75 sm:text-base">
-                With more than 28 years in the industry, our certified technicians deliver cooling,
-                plumbing and electrical solutions — fast response, transparent pricing and reliable
-                workmanship across the UAE.
+              <h2 className="mt-4 max-w-lg text-base font-medium leading-snug text-white/90 sm:text-lg">
+                24/7 Property Maintenance Services Across Dubai with Dedicated Support in Dubai
+                South.
+              </h2>
+
+              <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">
+                Fixoo Nova is a trusted building maintenance company in Dubai providing 24/7
+                property maintenance services for residential, commercial and industrial properties.
+                We specialize in AC services, electrical, plumbing, handyman services, renovation
+                and annual maintenance contracts, with dedicated teams serving Dubai South and
+                surrounding communities.
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2">
@@ -485,7 +588,7 @@ export default function IndexPage() {
             <div className="absolute bottom-4 left-4 hidden max-w-[220px] rounded-lg border border-white/15 bg-black/40 px-3 py-2 backdrop-blur-md lg:block">
               <p className="text-[10px] font-semibold uppercase tracking-wider text-primary">Watch us work</p>
               <p className="mt-0.5 text-xs leading-snug text-white/75">
-                AC, plumbing and electrical experts across the UAE.
+                AC, plumbing and electrical experts across Dubai.
               </p>
             </div>
           </div>
@@ -604,7 +707,8 @@ export default function IndexPage() {
           <div>
             <span className="eyebrow text-white/65">What We Do</span>
             <h2 className="font-display text-4xl sm:text-5xl mt-3 text-white">
-              Services crafted with <span className="text-gradient-gold">precision</span>.
+              Building Maintenance Services in{" "}
+              <span className="text-gradient-gold">Dubai</span>
             </h2>
           </div>
           <Link
@@ -748,15 +852,19 @@ export default function IndexPage() {
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
             <div className="max-w-2xl">
               <span className="eyebrow">
-                UAE WIDE COVERAGE
+                Trusted Building Maintenance Company in Dubai
               </span>
               <h2 className="font-display text-4xl sm:text-5xl mt-3 mb-4 leading-tight">
-                From a single bulb to a full{" "}
-                <span className="text-gradient-gold">villa transformation</span>.
+                Serving Dubai with Dedicated Support in{" "}
+                <span className="text-gradient-gold">Dubai South</span>.
               </h2>
+              <p className="text-muted-foreground mb-4">
+                We provide building maintenance across Dubai communities including Dubai South, DIP,
+                Villanova, Discovery Gardens, Damac Hills 2, Expo City, JVC, JVT, Business Bay, Dubai
+                Marina, Palm Jumeirah and Downtown.
+              </p>
               <p className="text-muted-foreground mb-6">
-                One trusted partner for your home, office and investment property — Dubai, Abu
-                Dhabi, Sharjah and beyond.
+                We also serve other Emirates upon request.
               </p>
               <Link
                 to="/services"
@@ -808,7 +916,7 @@ export default function IndexPage() {
           </div>
           <p className="max-w-md text-white/70">
             Specialist AC repairs, electrical installations and plumbing fixes — the core work our
-            team delivers every day across the UAE.
+            team delivers every day across Dubai.
           </p>
         </div>
         <div className="grid md:grid-cols-12 gap-4">
@@ -884,8 +992,8 @@ export default function IndexPage() {
           </p>
           <ul className="space-y-3">
             {[
-              "28+ years of industry experience across the UAE",
-              "Licensed and insured across all UAE emirates",
+              "28+ years of industry experience across Dubai",
+              "Licensed and insured building maintenance company in Dubai",
               "Transparent quotes — no hidden surprises",
               "Eco-friendly chemicals and cleaning agents",
               "24/7 emergency response available",
@@ -955,7 +1063,7 @@ export default function IndexPage() {
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
               From a single repair to a complete renovation — book a hassle-free appointment with
-              our team today.
+              our building maintenance team in Dubai today.
             </p>
             <a href="tel:+971508001238" className="btn-primary">
               <Phone className="h-4 w-4" /> Call +971 50 800 1238
@@ -964,6 +1072,98 @@ export default function IndexPage() {
         </div>
       </section>
 
+      {/* AREAS WE SERVE */}
+      <section data-reveal-group className="py-24 px-6 lg:px-10 max-w-7xl mx-auto" id="areas-we-serve">
+        <div className="text-center mb-12">
+          <span className="eyebrow">LOCAL COVERAGE</span>
+          <h2 className="font-display text-4xl sm:text-5xl mt-3">
+            Areas We <span className="text-gradient-gold">Serve</span>
+          </h2>
+        </div>
+
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          <div data-reveal-card className="reveal-card space-y-5 text-muted-foreground leading-relaxed">
+            <p>
+              Fixoo Nova proudly provides building maintenance services across Dubai. As a trusted
+              building maintenance company in Dubai, we focus on fast response, clear communication
+              and reliable workmanship for homes, villas, apartments and commercial properties —
+              with dedicated support for Dubai South and surrounding communities.
+            </p>
+            <p>
+              Property owners in Dubai South, Dubai Investment Park (DIP), Villanova, Discovery
+              Gardens and Damac Hills 2 choose us for routine property maintenance and urgent
+              call-outs alike. Whether you need AC cleaning after a dusty summer, plumbing and drain
+              cleaning after a leak, electrical safety checks, or a full annual maintenance
+              contract, our teams arrive prepared with the right tools and transparent pricing.
+            </p>
+            <p>
+              We also serve established communities such as JVC, JVT, Dubai Marina, Downtown Dubai,
+              Business Bay, Al Barsha and Palm Jumeirah. Local knowledge matters: technicians who
+              regularly work in these areas understand building types, access rules and typical
+              maintenance patterns — which means quicker diagnostics and fewer return visits.
+            </p>
+            <p>
+              With more than 28 years of industry experience, Fixoo Nova combines AC services,
+              electrical, plumbing, handyman, renovation and deep cleaning under one partner. That
+              single point of contact helps landlords, facility managers and homeowners keep
+              properties safe, cool and well maintained year-round. We also serve other Emirates
+              upon request.
+            </p>
+          </div>
+
+          <div data-reveal-card className="reveal-card premium-card p-8">
+            <h3 className="font-display text-2xl mb-5">
+              Frequently served <span className="text-gradient-gold">communities</span>
+            </h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {areasWeServe.map((area) => (
+                <li key={area} className="flex items-start gap-2.5 text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                  <span>{area}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section data-reveal-group className="relative w-full overflow-hidden bg-[#0a1018] py-24 px-6 lg:px-10" id="faq">
+        <div className="pointer-events-none absolute -left-16 top-12 h-72 w-72 rounded-full bg-[radial-gradient(circle,oklch(0.74_0.14_76/0.28)_0%,transparent_72%)] blur-3xl mix-blend-screen" />
+        <div className="pointer-events-none absolute right-[12%] bottom-[10%] h-56 w-56 rounded-full bg-[radial-gradient(circle,oklch(0.64_0.16_72/0.24)_0%,transparent_74%)] blur-3xl mix-blend-screen" />
+        <div className="relative mx-auto max-w-3xl">
+          <div className="text-center mb-12">
+            <span className="eyebrow text-white/65">FAQ</span>
+            <h2 className="font-display text-4xl sm:text-5xl mt-3 text-white">
+              Building maintenance questions,{" "}
+              <span className="text-gradient-gold">answered</span>.
+            </h2>
+            <p className="mt-4 text-white/70">
+              Common questions about property maintenance, AC services and Annual Maintenance
+              Contracts in Dubai and Dubai South.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {homeFaqs.map((faq) => (
+              <details
+                key={faq.q}
+                data-reveal-card
+                className="reveal-card group overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm"
+              >
+                <summary className="cursor-pointer list-none p-5 text-left font-medium text-white marker:content-none [&::-webkit-details-marker]:hidden sm:p-6">
+                  <span className="flex items-center justify-between gap-4">
+                    {faq.q}
+                    <span className="shrink-0 text-primary transition group-open:rotate-45">+</span>
+                  </span>
+                </summary>
+                <p className="border-t border-white/10 px-5 pb-5 pt-0 text-sm leading-relaxed text-white/70 sm:px-6 sm:pb-6">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* HOME CONTACT */}
       <section data-reveal-group className="py-24 px-6 lg:px-10 max-w-7xl mx-auto" id="home-contact">
@@ -983,7 +1183,7 @@ export default function IndexPage() {
             <div className="mt-8 space-y-3 text-sm text-muted-foreground">
               <p>Phone: +971 50 800 1238</p>
               <p>Email: info@fixoonova.ae</p>
-              <p>Coverage: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah and beyond.</p>
+              <p>Coverage: Dubai South, DIP, Villanova, Discovery Gardens, Damac Hills 2, JVC, Dubai Marina, Business Bay and more.</p>
             </div>
           </div>
 

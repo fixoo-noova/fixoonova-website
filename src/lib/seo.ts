@@ -15,9 +15,9 @@ export type PageSeo = {
 
 export const PAGE_SEO: Record<string, PageSeo> = {
   "/": {
-    title: "Fixoo Nova — Premium Building Maintenance in Dubai & UAE",
+    title: "Building Maintenance Company in Dubai | Fixoo Nova",
     description:
-      "Fixoo Nova delivers premium property maintenance — AC servicing, plumbing, electrical, renovation, deep cleaning and ELV solutions across the UAE.",
+      "Fixoo Nova is a trusted building maintenance company in Dubai offering 24/7 property maintenance, AC services, plumbing, electrical, handyman and AMC — with dedicated support in Dubai South.",
     path: "/",
   },
   "/about": {

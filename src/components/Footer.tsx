@@ -28,8 +28,9 @@ export function Footer() {
               </div>
             </div>
             <p className="text-white/80 text-sm max-w-md leading-relaxed">
-              Your complete property maintenance partner in the UAE. We deliver premium technical
-              services with the precision and care your property deserves.
+              Your complete building maintenance partner in Dubai. We deliver premium AC, plumbing,
+              electrical and property maintenance services with dedicated support across Dubai South
+              and surrounding communities.
             </p>
           </div>
           <div>
@@ -66,7 +67,11 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-                <span>Dubai, United Arab Emirates</span>
+                <span>
+                  Dubai South · Dubai Investment Park · Discovery Gardens
+                  <br />
+                  Villanova · Damac Hills 2 · JVC · Dubai Marina · Business Bay
+                </span>
               </li>
             </ul>
             <div className="mt-6 flex items-center gap-3">
@@ -98,7 +103,7 @@ export function Footer() {
             <span>© {new Date().getFullYear()} Fixoo Nova Building Maintenance. All rights reserved.</span>
             <span className="text-white/40">|</span>
             <span>
-            Design and Developed by Mentecode. {" "}
+            Design and Developed by {" "}
             <a
               href="https://www.mentecode.com/"
               target="_blank"
