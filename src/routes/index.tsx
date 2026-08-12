@@ -41,6 +41,7 @@ import projectPlumbing from "@/assets/plumbing.webp";
 import team from "@/assets/team.jpg";
 import kitchen from "@/assets/project-kitchen.jpg";
 import servicesVideo from "../../public/ac-repair.mp4";
+import { SITE_URL } from "@/lib/seo";
 
 const features = [
   {
@@ -101,7 +102,7 @@ const services = [
   },
   {
     img: kitchen,
-    title: "Handyman & Kitchen Upgrades",
+    title: "Handyman Services & Kitchen Upgrades",
     desc: "Reliable handyman services in Dubai plus bespoke kitchen joinery, marble surfaces and modern fittings installed end-to-end by skilled technicians.",
   },
 ];
@@ -312,7 +313,7 @@ export default function IndexPage() {
   }, [heroApi]);
 
   useEffect(() => {
-    const scriptId = "fixoo-nova-faq-schema";
+    const scriptId = "fixoo-nova-home-schema";
     const existing = document.getElementById(scriptId);
     if (existing) existing.remove();
 
@@ -321,15 +322,77 @@ export default function IndexPage() {
     script.type = "application/ld+json";
     script.text = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: homeFaqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.q,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.a,
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": `${SITE_URL}/#organization`,
+          name: "Fixoo Nova",
+          url: SITE_URL,
+          telephone: "+971508001238",
+          email: "info@fixoonova.ae",
+          image: heroSlides[0]?.src,
+          description:
+            "Fixoo Nova is a trusted building maintenance company in Dubai providing 24/7 property maintenance services with dedicated support in Dubai South.",
+          areaServed: [
+            "Dubai",
+            "Dubai South",
+            "Dubai Investment Park",
+            "Villanova",
+            "Discovery Gardens",
+            "Damac Hills 2",
+            "Expo City",
+            "JVC",
+            "JVT",
+            "Business Bay",
+            "Dubai Marina",
+            "Palm Jumeirah",
+            "Downtown Dubai",
+            "Al Barsha",
+          ],
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Dubai",
+            addressCountry: "AE",
+          },
+          sameAs: [
+            "https://www.instagram.com/fixoonova/",
+            "https://www.facebook.com/profile.php?id=61591712577093",
+          ],
         },
-      })),
+        {
+          "@type": "Service",
+          "@id": `${SITE_URL}/#service`,
+          serviceType: "Building Maintenance",
+          provider: {
+            "@id": `${SITE_URL}/#organization`,
+          },
+          areaServed: ["Dubai", "Dubai South"],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Building Maintenance Services in Dubai",
+            itemListElement: services.map((service) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: service.title,
+                description: service.desc,
+              },
+            })),
+          },
+        },
+        {
+          "@type": "FAQPage",
+          "@id": `${SITE_URL}/#faq`,
+          mainEntity: homeFaqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.a,
+            },
+          })),
+        },
+      ],
     });
     document.head.appendChild(script);
 
@@ -860,8 +923,8 @@ export default function IndexPage() {
               </h2>
               <p className="text-muted-foreground mb-4">
                 We provide building maintenance across Dubai communities including Dubai South, DIP,
-                Villanova, Discovery Gardens, Damac Hills 2, Expo City, JVC, JVT, Business Bay, Dubai
-                Marina, Palm Jumeirah and Downtown.
+                Villanova, Discovery Gardens, Damac Hills 2, Expo City, JVC, JVT, Business Bay,
+                Dubai Marina, Palm Jumeirah and Downtown Dubai.
               </p>
               <p className="text-muted-foreground mb-6">
                 We also serve other Emirates upon request.

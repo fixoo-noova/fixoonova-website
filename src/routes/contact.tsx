@@ -34,7 +34,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-transparent flex items-center">
             <div className="px-8 sm:px-14 max-w-xl">
               <h2 className="font-display text-3xl sm:text-4xl mb-3">
-                Same-day visits across the UAE.
+                Same-day visits across Dubai.
               </h2>
               <p className="text-muted-foreground">
                 Reach us by phone, email or WhatsApp — we usually respond within an hour.
@@ -55,7 +55,7 @@ export default function ContactPage() {
               v: "+971 50 800 1238",
               h: "https://wa.me/971508001238",
             },
-            { icon: MapPin, t: "Address", v: "Dubai, United Arab Emirates" },
+            { icon: MapPin, t: "Address", v: "Dubai South, Dubai, United Arab Emirates" },
             { icon: Clock, t: "Hours", v: "24 / 7 — Always on call" },
           ].map((c) => (
             <a

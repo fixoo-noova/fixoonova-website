@@ -288,7 +288,7 @@ export default function ServicesPage() {
             </p>
             <div className="space-y-3 text-sm text-muted-foreground">
               <p>Fast response within working hours.</p>
-              <p>Site visit scheduling available across UAE.</p>
+              <p>Site visit scheduling available across Dubai.</p>
               <p>Transparent quote before work begins.</p>
             </div>
             <Link to="/contact" className="btn-outline mt-8">

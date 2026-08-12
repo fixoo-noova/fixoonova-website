@@ -143,12 +143,12 @@ export default function MaintenancePlanPage() {
           <div>
             <span className="eyebrow">YEARLY MAINTENANCE OFFER</span>
             <h1 className="font-display mt-4 max-w-xl text-5xl leading-tight sm:text-6xl">
-              Yealy plan.{" "}
+              Yearly plan.{" "}
               <span className="text-gradient-gold">Every service</span> your property needs.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Protect your home or business with a single annual contract — AC, plumbing,
-              electrical and general maintenance handled by one trusted team across the UAE.
+              electrical and general maintenance handled by one trusted team across Dubai.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#get-quote" className="btn-primary">

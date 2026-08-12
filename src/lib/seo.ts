@@ -21,27 +21,27 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     path: "/",
   },
   "/about": {
-    title: "About Fixoo Nova — Trusted Property Maintenance in the UAE",
+    title: "About Fixoo Nova — Trusted Building Maintenance Company in Dubai",
     description:
-      "Learn about Fixoo Nova — licensed, insured building maintenance experts serving homes, villas and businesses across Dubai and the UAE.",
+      "Learn about Fixoo Nova, a licensed and insured building maintenance company in Dubai serving homes, villas and businesses with dedicated support in Dubai South.",
     path: "/about",
   },
   "/services": {
-    title: "Our Services — AC, Plumbing, Electrical & More | Fixoo Nova",
+    title: "Building Maintenance Services in Dubai | Fixoo Nova",
     description:
-      "Explore Fixoo Nova services: AC & HVAC, plumbing, electrical & ELV, renovation, deep cleaning, pest control and specialized property care across the UAE.",
+      "Explore building maintenance services in Dubai from Fixoo Nova, including AC services, plumbing, electrical, renovation, deep cleaning and handyman support.",
     path: "/services",
   },
   "/maintenance-plan": {
     title: "Yearly Maintenance Plan — AC, Plumbing & Electrical AMC | Fixoo Nova",
     description:
-      "One annual contract for AC, plumbing, electrical and general property upkeep. Flexible maintenance plans for apartments, villas and offices across the UAE.",
+      "One annual contract for AC, plumbing, electrical and general property upkeep. Flexible maintenance plans for apartments, villas and offices across Dubai.",
     path: "/maintenance-plan",
   },
   "/contact": {
-    title: "Contact Fixoo Nova — Book Property Maintenance in the UAE",
+    title: "Contact Fixoo Nova — Book Property Maintenance in Dubai",
     description:
-      "Get in touch with Fixoo Nova for hassle-free booking. Call, email or WhatsApp our team for AC, plumbing, electrical and full property maintenance.",
+      "Get in touch with Fixoo Nova for hassle-free booking in Dubai. Call, email or WhatsApp our team for AC, plumbing, electrical and full property maintenance.",
     path: "/contact",
   },
 };

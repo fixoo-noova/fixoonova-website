@@ -13,8 +13,8 @@ export default function AboutPage() {
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
           Fixoo Nova was built on more than 28 years of hands-on expertise in property maintenance
-          across the MENA region. We deliver exceptional AC, plumbing, electrical and technical
-          services with the precision, transparency and care your property deserves.
+          across Dubai. We deliver exceptional AC, plumbing, electrical and technical services
+          with the precision, transparency and care your property deserves.
         </p>
       </section>
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
                 For over 28 years, we have served homeowners, landlords and businesses with
                 dependable property maintenance — from routine AC servicing and plumbing repairs to
-                electrical work and full building care throughout the UAE.
+                electrical work and full building care throughout Dubai.
               </p>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function AboutPage() {
           {
             icon: Eye,
             title: "Our Vision",
-            desc: "To be the most trusted name in premium building maintenance across the UAE and beyond.",
+            desc: "To be the most trusted name in premium building maintenance across Dubai and beyond.",
           },
           {
             icon: Award,
