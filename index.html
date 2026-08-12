@@ -6,7 +6,7 @@
     <title>Building Maintenance Company in Dubai | Fixoo Nova</title>
     <meta
       name="description"
-      content="Fixoo Nova is a trusted building maintenance company in Dubai offering 24/7 property maintenance, AC services, plumbing, electrical, handyman and AMC — with dedicated support in Dubai South."
+      content="Building maintenance company in Dubai for AC, plumbing, electrical, handyman and annual maintenance services with Dubai South support."
     />
     <meta name="author" content="Fixoo Nova" />
     <meta name="robots" content="index, follow" />
@@ -22,7 +22,7 @@
     />
     <meta
       property="og:description"
-      content="Fixoo Nova is a trusted building maintenance company in Dubai offering 24/7 property maintenance, AC services, plumbing, electrical, handyman and AMC — with dedicated support in Dubai South."
+      content="Building maintenance company in Dubai for AC, plumbing, electrical, handyman and annual maintenance services with Dubai South support."
     />
     <meta
       property="og:image"
@@ -36,12 +36,93 @@
     />
     <meta
       name="twitter:description"
-      content="Fixoo Nova is a trusted building maintenance company in Dubai offering 24/7 property maintenance, AC services, plumbing, electrical, handyman and AMC — with dedicated support in Dubai South."
+      content="Building maintenance company in Dubai for AC, plumbing, electrical, handyman and annual maintenance services with Dubai South support."
     />
     <meta
       name="twitter:image"
       content="https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1780903670/hero-banner-1_xdunup.jpg"
     />
+    <script id="fixoo-nova-home-schema" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://fixoonova.ae/#organization",
+            "name": "Fixoo Nova",
+            "url": "https://fixoonova.ae/",
+            "telephone": "+971508001238",
+            "email": "info@fixoonova.ae",
+            "image": "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1780903670/hero-banner-1_xdunup.jpg",
+            "description": "Building maintenance company in Dubai for AC, plumbing, electrical, handyman and annual maintenance services with Dubai South support.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "areaServed": [
+              "Dubai",
+              "Dubai South",
+              "Dubai Investment Park",
+              "Villanova",
+              "Discovery Gardens",
+              "Damac Hills 2",
+              "Expo City",
+              "JVC",
+              "JVT",
+              "Business Bay",
+              "Dubai Marina",
+              "Palm Jumeirah",
+              "Downtown Dubai",
+              "Al Barsha"
+            ],
+            "sameAs": [
+              "https://www.instagram.com/fixoonova/",
+              "https://www.facebook.com/profile.php?id=61591712577093"
+            ]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://fixoonova.ae/#service",
+            "serviceType": "Building Maintenance",
+            "provider": {
+              "@id": "https://fixoonova.ae/#organization"
+            },
+            "areaServed": ["Dubai", "Dubai South"]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://fixoonova.ae/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do you provide building maintenance in Dubai South?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Fixoo Nova provides building maintenance in Dubai South and nearby communities including DIP, Villanova, Discovery Gardens and Damac Hills 2."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer 24/7 emergency maintenance?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. We provide 24/7 support for urgent AC, plumbing, electrical and handyman issues across Dubai."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I book an annual maintenance contract in Dubai?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Our annual maintenance contracts cover AC servicing, plumbing checks, electrical inspections and general property upkeep."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
@@ -53,7 +134,39 @@
     />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main>
+        <section>
+          <h1>Building Maintenance Company in Dubai</h1>
+          <h2>24/7 Property Maintenance Services Across Dubai with Dedicated Support in Dubai South</h2>
+          <p>
+            Fixoo Nova provides building maintenance services in Dubai for residential, commercial
+            and industrial properties, including AC services, plumbing, electrical, handyman and
+            annual maintenance contracts.
+          </p>
+          <img
+            src="https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1780903670/hero-banner-1_xdunup.jpg"
+            alt="Building maintenance company in Dubai servicing residential and commercial properties"
+            width="1200"
+            height="630"
+          />
+          <nav aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/maintenance-plan">Maintenance Plan</a>
+            <a href="/contact">Contact</a>
+            <a href="https://wa.me/971508001238">WhatsApp</a>
+          </nav>
+        </section>
+      </main>
+    </div>
+    <noscript>
+      <p>
+        Fixoo Nova requires JavaScript for the full experience, but the main service pages remain
+        accessible through the links above.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

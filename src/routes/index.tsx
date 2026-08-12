@@ -60,8 +60,8 @@ const features = [
 
 const projectGallery = {
   main: {
-    src: acMech,
-    alt: "AC mechanic servicing an air conditioning unit",
+    src: ac,
+    alt: "Technician performing professional AC maintenance in Dubai",
   },
   electrical: {
     src: electrician,
