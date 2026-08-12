@@ -37,6 +37,7 @@ import clean from "@/assets/service-cleaning.jpg";
 import electrician from "@/assets/electrician.webp";
 import plumbingImg from "@/assets/plumber.webp";
 import acMech from "@/assets/ac mech.webp";
+import productThree from "@/assets/product-3.webp";
 import projectPlumbing from "@/assets/plumbing.webp";
 import team from "@/assets/team.jpg";
 import kitchen from "@/assets/project-kitchen.jpg";
@@ -60,8 +61,8 @@ const features = [
 
 const projectGallery = {
   main: {
-    src: ac,
-    alt: "Technician performing professional AC maintenance in Dubai",
+    src: productThree,
+    alt: "Technician cleaning a wall-mounted AC unit",
   },
   electrical: {
     src: electrician,
