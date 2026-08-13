@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { absoluteUrl, DEFAULT_OG_IMAGE, getPageSeo, SITE_NAME } from "@/lib/seo";
+
+const GA_MEASUREMENT_ID = "G-KGMVYCFVX6";
 
 function setMeta(name: string, content: string, attr: "name" | "property" = "name") {
   let el = document.querySelector(`meta[${attr}="${name}"]`);
@@ -24,6 +26,7 @@ function setLink(rel: string, href: string) {
 
 export function PageMeta() {
   const { pathname } = useLocation();
+  const isFirstPageView = useRef(true);
 
   useEffect(() => {
     const seo = getPageSeo(pathname);
@@ -50,6 +53,19 @@ export function PageMeta() {
     setMeta("twitter:image", image);
 
     setLink("canonical", url);
+
+    if (isFirstPageView.current) {
+      isFirstPageView.current = false;
+      return;
+    }
+
+    if (typeof window.gtag === "function") {
+      window.gtag("config", GA_MEASUREMENT_ID, {
+        page_path: pathname,
+        page_title: seo.title,
+        page_location: url,
+      });
+    }
   }, [pathname]);
 
   return null;
