@@ -1,0 +1,15 @@
+Fixoo Nova
+https://fixoonova.ae/
+
+Summary: Building maintenance company in Dubai providing AC services, plumbing, electrical, handyman support, renovation, deep cleaning, and annual maintenance contracts.
+
+Preferred host: https://fixoonova.ae/
+Sitemap: https://fixoonova.ae/sitemap.xml
+Robots: https://fixoonova.ae/robots.txt
+
+Important pages:
+- https://fixoonova.ae/
+- https://fixoonova.ae/about
+- https://fixoonova.ae/services
+- https://fixoonova.ae/maintenance-plan
+- https://fixoonova.ae/contact
