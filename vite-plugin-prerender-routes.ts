@@ -1,0 +1,80 @@
+import fs from "node:fs";
+import path from "node:path";
+import type { Plugin } from "vite";
+import { absoluteUrl, DEFAULT_OG_IMAGE, PAGE_SEO, SITE_NAME, type PageSeo } from "./src/lib/seo";
+
+const ROUTES_TO_PRERENDER = ["/about", "/services", "/maintenance-plan", "/contact"] as const;
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function replaceAttr(html: string, attr: "name" | "property", key: string, content: string) {
+  const pattern = new RegExp(
+    `(<meta\\s+${attr}="${key}"\\s+content=")([\\s\\S]*?)("\\s*/>)`,
+    "i",
+  );
+  if (pattern.test(html)) {
+    return html.replace(pattern, `$1${escapeHtml(content)}$3`);
+  }
+  return html;
+}
+
+function applyPageSeo(html: string, page: PageSeo) {
+  const url = absoluteUrl(page.path);
+  const image = page.ogImage ?? DEFAULT_OG_IMAGE;
+  const robots = page.noindex ? "noindex, nofollow" : "index, follow";
+
+  let next = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(page.title)}</title>`);
+  next = replaceAttr(next, "name", "description", page.description);
+  next = replaceAttr(next, "name", "robots", robots);
+  next = next.replace(
+    /<link rel="canonical" href="[^"]*"\s*\/>/i,
+    `<link rel="canonical" href="${escapeHtml(url)}" />`,
+  );
+  next = replaceAttr(next, "property", "og:url", url);
+  next = replaceAttr(next, "property", "og:title", page.title);
+  next = replaceAttr(next, "property", "og:description", page.description);
+  next = replaceAttr(next, "property", "og:image", image);
+  next = replaceAttr(next, "property", "og:site_name", SITE_NAME);
+  next = replaceAttr(next, "name", "twitter:title", page.title);
+  next = replaceAttr(next, "name", "twitter:description", page.description);
+  next = replaceAttr(next, "name", "twitter:image", image);
+
+  if (page.crawlerHtml) {
+    next = next.replace(
+      /<!--SSR_START-->[\s\S]*?<!--SSR_END-->/,
+      `<!--SSR_START-->${page.crawlerHtml.trim()}<!--SSR_END-->`,
+    );
+  }
+
+  return next;
+}
+
+export function prerenderRouteHtml(): Plugin {
+  return {
+    name: "prerender-route-html",
+    apply: "build",
+    closeBundle() {
+      const distDir = path.resolve(process.cwd(), "dist");
+      const sourcePath = path.join(distDir, "index.html");
+      if (!fs.existsSync(sourcePath)) return;
+
+      const source = fs.readFileSync(sourcePath, "utf8");
+
+      for (const route of ROUTES_TO_PRERENDER) {
+        const page = PAGE_SEO[route];
+        if (!page) continue;
+
+        const html = applyPageSeo(source, page);
+        const outDir = path.join(distDir, route.replace(/^\//, ""));
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(path.join(outDir, "index.html"), html);
+      }
+    },
+  };
+}

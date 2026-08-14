@@ -30,12 +30,36 @@ import plumbing from "@/assets/service-plumbing.jpg";
 import kitchen from "@/assets/project-kitchen.jpg";
 
 const featuredServices = [
-  { img: ac, t: "AC & HVAC" },
-  { img: reno, t: "Renovation" },
-  { img: clean, t: "Deep Cleaning" },
-  { img: electrical, t: "Electrical & ELV" },
-  { img: plumbing, t: "Plumbing" },
-  { img: kitchen, t: "Kitchen & Joinery" },
+  {
+    img: ac,
+    t: "AC & HVAC",
+    alt: "AC technician servicing an air conditioning unit for building maintenance in Dubai",
+  },
+  {
+    img: reno,
+    t: "Renovation",
+    alt: "Villa renovation and interior upgrade completed by Fixoo Nova in Dubai",
+  },
+  {
+    img: clean,
+    t: "Deep Cleaning",
+    alt: "Professional deep cleaning of a Dubai apartment by Fixoo Nova",
+  },
+  {
+    img: electrical,
+    t: "Electrical & ELV",
+    alt: "Electrician working on an electrical panel for a Dubai property",
+  },
+  {
+    img: plumbing,
+    t: "Plumbing",
+    alt: "Plumber repairing pipes and drainage as part of Dubai building maintenance",
+  },
+  {
+    img: kitchen,
+    t: "Kitchen & Joinery",
+    alt: "Custom kitchen joinery and fittings installed by Fixoo Nova in Dubai",
+  },
 ];
 
 const groups = [
@@ -216,7 +240,8 @@ export default function ServicesPage() {
       <section className="px-6 lg:px-10 pt-24 pb-12 max-w-7xl mx-auto">
         <span className="eyebrow">WHAT WE OFFER</span>
         <h1 className="font-display text-5xl sm:text-6xl mt-4 mb-6 max-w-4xl leading-tight">
-          A complete suite of <span className="text-gradient-gold">premium services</span>.
+          Building Maintenance Services in{" "}
+          <span className="text-gradient-gold">Dubai</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
           From routine upkeep to complete transformations — Fixoo Nova handles every detail with
@@ -225,6 +250,9 @@ export default function ServicesPage() {
       </section>
 
       <section className="px-6 lg:px-10 pb-12 max-w-7xl mx-auto">
+        <h2 className="font-display text-3xl sm:text-4xl mb-8">
+          Featured building maintenance services
+        </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {featuredServices.map((s) => (
             <button
@@ -235,7 +263,7 @@ export default function ServicesPage() {
             >
               <img
                 src={s.img}
-                alt={s.t}
+                alt={s.alt}
                 loading="lazy"
                 width={1280}
                 height={960}
@@ -281,7 +309,9 @@ export default function ServicesPage() {
         <div className="grid gap-8 lg:grid-cols-5">
           <div className="rounded-3xl border border-primary/20 bg-card p-10 lg:col-span-2 shadow-elegant">
             <span className="eyebrow">SERVICE INQUIRY</span>
-            <h2 className="font-display text-3xl sm:text-4xl mt-3 mb-4">Tell us what you need.</h2>
+            <h2 className="font-display text-3xl sm:text-4xl mt-3 mb-4">
+              Request a building maintenance quote
+            </h2>
             <p className="text-muted-foreground mb-8">
               Share your requirements and choose a service. Our team will contact you with a
               tailored plan and quote.

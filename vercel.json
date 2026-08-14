@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/about/", "destination": "/about/index.html" },
+    { "source": "/services", "destination": "/services/index.html" },
+    { "source": "/services/", "destination": "/services/index.html" },
+    { "source": "/maintenance-plan", "destination": "/maintenance-plan/index.html" },
+    { "source": "/maintenance-plan/", "destination": "/maintenance-plan/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" },
+    { "source": "/contact/", "destination": "/contact/index.html" },
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  ]
+}

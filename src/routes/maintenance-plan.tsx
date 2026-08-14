@@ -143,8 +143,8 @@ export default function MaintenancePlanPage() {
           <div>
             <span className="eyebrow">YEARLY MAINTENANCE OFFER</span>
             <h1 className="font-display mt-4 max-w-xl text-5xl leading-tight sm:text-6xl">
-              Yearly plan.{" "}
-              <span className="text-gradient-gold">Every service</span> your property needs.
+              Annual Maintenance Contract in{" "}
+              <span className="text-gradient-gold">Dubai</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Protect your home or business with a single annual contract — AC, plumbing,
@@ -173,7 +173,7 @@ export default function MaintenancePlanPage() {
           <div className="relative overflow-hidden rounded-3xl border border-border shadow-elegant">
             <img
               src={ac}
-              alt="Technician performing AC maintenance"
+              alt="Fixoo Nova technician performing scheduled AC maintenance for a Dubai property"
               loading="eager"
               width={1200}
               height={900}

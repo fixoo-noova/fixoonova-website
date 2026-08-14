@@ -8,8 +8,8 @@ export default function AboutPage() {
     <>
       <section className="px-6 lg:px-10 pt-24 pb-16 max-w-7xl mx-auto">
         <h1 className="font-display text-5xl sm:text-6xl mt-5 mb-6 max-w-4xl leading-tight">
-          Unifying the thread between people and their{" "}
-          <span className="text-gradient-gold">comfort</span>.
+          About Fixoo Nova — Building Maintenance Company in{" "}
+          <span className="text-gradient-gold">Dubai</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
           Fixoo Nova was built on more than 28 years of hands-on expertise in property maintenance
@@ -22,7 +22,7 @@ export default function AboutPage() {
         <div className="rounded-3xl overflow-hidden border border-border shadow-elegant">
           <img
             src={"https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1780903670/hero-banner-3_nmgyob.jpg"}
-            alt="Premium Dubai property"
+            alt="Dubai villa maintained by Fixoo Nova building maintenance technicians"
             loading="lazy"
             width={1920}
             height={1080}
@@ -55,7 +55,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 lg:px-10 py-16 max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+      <section className="px-6 lg:px-10 py-16 max-w-7xl mx-auto">
+        <h2 className="font-display text-4xl mb-8">How Fixoo Nova works</h2>
+        <div className="grid md:grid-cols-3 gap-6">
         {[
           {
             icon: Target,
@@ -84,6 +86,7 @@ export default function AboutPage() {
             <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
           </div>
         ))}
+        </div>
       </section>
 
       <section className="px-6 lg:px-10 py-20 max-w-7xl mx-auto">
@@ -127,7 +130,7 @@ export default function AboutPage() {
         <div className="rounded-3xl overflow-hidden border border-border shadow-elegant">
           <img
             src={team}
-            alt="Our team"
+            alt="Fixoo Nova technicians providing licensed building maintenance services in Dubai"
             loading="lazy"
             width={1600}
             height={1067}
@@ -164,7 +167,7 @@ export default function AboutPage() {
         <div className="lg:order-2 rounded-3xl overflow-hidden border border-border shadow-elegant">
           <img
             src={living}
-            alt="Renovated luxury living room"
+            alt="Renovated luxury living room after Fixoo Nova villa renovation in Dubai"
             loading="lazy"
             width={1280}
             height={960}

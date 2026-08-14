@@ -14,7 +14,8 @@ export default function ContactPage() {
       <section className="px-6 lg:px-10 pt-24 pb-12 max-w-7xl mx-auto">
         <span className="eyebrow">GET IN TOUCH</span>
         <h1 className="font-display text-5xl sm:text-6xl mt-4 mb-6 max-w-4xl leading-tight">
-          Let's make your property <span className="text-gradient-gold">shine</span>.
+          Contact Fixoo Nova — Book Building Maintenance in{" "}
+          <span className="text-gradient-gold">Dubai</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl">
           Hassle-free booking. Premium service. Tell us what you need and our team will be in touch.
@@ -25,7 +26,7 @@ export default function ContactPage() {
         <div className="rounded-3xl overflow-hidden border border-border shadow-elegant relative">
           <img
             src={"https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1780903670/hero-banner-1_xdunup.jpg"}
-            alt="Dubai luxury property"
+            alt="Dubai property ready for a Fixoo Nova building maintenance visit"
             loading="lazy"
             width={1920}
             height={1080}
@@ -46,6 +47,7 @@ export default function ContactPage() {
 
       <section className="px-6 lg:px-10 pb-24 max-w-7xl mx-auto grid lg:grid-cols-5 gap-8">
         <div className="lg:col-span-2 space-y-4">
+          <h2 className="font-display text-3xl mb-2">Contact details</h2>
           {[
             { icon: Phone, t: "Phone", v: "+971 50 800 1238", h: "tel:+971508001238" },
             { icon: Mail, t: "Email", v: "info@fixoonova.ae", h: "mailto:info@fixoonova.ae" },
@@ -82,6 +84,7 @@ export default function ContactPage() {
           onSubmit={(e) => contactForm.handleSubmit(e)}
           className="lg:col-span-3 p-8 premium-card space-y-5"
         >
+          <h2 className="font-display text-3xl">Send a maintenance enquiry</h2>
           <div className="grid sm:grid-cols-2 gap-5">
             <Field label="Name" name="name" required />
             <Field label="Phone" name="phone" type="tel" required />
