@@ -1,9 +1,22 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Target, Eye, Award, CheckCircle2, ArrowRight } from "lucide-react";
 import team from "@/assets/team.jpg";
 import living from "@/assets/project-living.jpg";
+import {
+  injectJsonLd,
+  localBusinessSchema,
+  organizationSchema,
+} from "@/lib/structuredData";
 
 export default function AboutPage() {
+  useEffect(() => {
+    return injectJsonLd("fixoo-nova-about-schema", {
+      "@context": "https://schema.org",
+      "@graph": [organizationSchema, localBusinessSchema],
+    });
+  }, []);
+
   return (
     <>
       <section className="px-6 lg:px-10 pt-24 pb-16 max-w-7xl mx-auto">
@@ -130,7 +143,7 @@ export default function AboutPage() {
         <div className="rounded-3xl overflow-hidden border border-border shadow-elegant">
           <img
             src={team}
-            alt="Fixoo Nova technicians providing licensed building maintenance services in Dubai"
+            alt="Fixoo Nova technicians providing building maintenance services in Dubai"
             loading="lazy"
             width={1600}
             height={1067}

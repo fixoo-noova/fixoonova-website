@@ -43,6 +43,11 @@ import team from "@/assets/team.jpg";
 import kitchen from "@/assets/project-kitchen.jpg";
 import servicesVideo from "../../public/ac-repair.mp4";
 import { SITE_URL } from "@/lib/seo";
+import {
+  injectJsonLd,
+  localBusinessSchema,
+  organizationSchema,
+} from "@/lib/structuredData";
 
 const features = [
   {
@@ -256,15 +261,21 @@ const popupServices = [
 
 const heroSlides = [
   {
-    src: "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1781679814/ac_dqt6h1.jpg",
+    src: "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_1200,h_900/v1781679814/ac_dqt6h1.jpg",
+    srcSet:
+      "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_640,h_480/v1781679814/ac_dqt6h1.jpg 640w, https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_800,h_600/v1781679814/ac_dqt6h1.jpg 800w, https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_1200,h_900/v1781679814/ac_dqt6h1.jpg 1200w",
     alt: "Technician servicing a ceiling-mounted air conditioning unit",
   },
   {
-    src: "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1781679814/electrician_bwsryp.jpg",
+    src: "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_1200,h_900/v1781679814/electrician_bwsryp.jpg",
+    srcSet:
+      "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_640,h_480/v1781679814/electrician_bwsryp.jpg 640w, https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_800,h_600/v1781679814/electrician_bwsryp.jpg 800w, https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_1200,h_900/v1781679814/electrician_bwsryp.jpg 1200w",
     alt: "Electrician working on an industrial electrical control panel",
   },
   {
-    src: "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1781679814/plumbing_ale4fg.jpg",
+    src: "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_1200,h_900/v1781679814/plumbing_ale4fg.jpg",
+    srcSet:
+      "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_640,h_480/v1781679814/plumbing_ale4fg.jpg 640w, https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_800,h_600/v1781679814/plumbing_ale4fg.jpg 800w, https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,c_fill,w_1200,h_900/v1781679814/plumbing_ale4fg.jpg 1200w",
     alt: "Plumber performing professional plumbing maintenance",
   },
 ];
@@ -280,12 +291,17 @@ export default function IndexPage() {
   useEffect(() => {
     try {
       const hasSeenPopup = window.localStorage.getItem(HOME_POPUP_KEY);
-      if (!hasSeenPopup) {
+      if (hasSeenPopup) return;
+
+      const timer = window.setTimeout(() => {
         setShowPopup(true);
         window.localStorage.setItem(HOME_POPUP_KEY, "true");
-      }
+      }, 4500);
+
+      return () => window.clearTimeout(timer);
     } catch {
-      setShowPopup(true);
+      const timer = window.setTimeout(() => setShowPopup(true), 4500);
+      return () => window.clearTimeout(timer);
     }
   }, []);
 
@@ -314,58 +330,21 @@ export default function IndexPage() {
   }, [heroApi]);
 
   useEffect(() => {
-    const scriptId = "fixoo-nova-home-schema";
-    const existing = document.getElementById(scriptId);
-    if (existing) existing.remove();
-
-    const script = document.createElement("script");
-    script.id = scriptId;
-    script.type = "application/ld+json";
-    script.text = JSON.stringify({
+    return injectJsonLd("fixoo-nova-home-schema", {
       "@context": "https://schema.org",
       "@graph": [
+        organizationSchema,
         {
-          "@type": "LocalBusiness",
-          "@id": `${SITE_URL}/#organization`,
-          name: "Fixoo Nova",
-          url: SITE_URL,
-          telephone: "+971508001238",
-          email: "info@fixoonova.ae",
-          image: heroSlides[0]?.src,
-          description:
-            "Fixoo Nova is a trusted building maintenance company in Dubai providing 24/7 property maintenance services with dedicated support in Dubai South.",
-          areaServed: [
-            "Dubai",
-            "Dubai South",
-            "Dubai Investment Park",
-            "Villanova",
-            "Discovery Gardens",
-            "Damac Hills 2",
-            "Expo City",
-            "JVC",
-            "JVT",
-            "Business Bay",
-            "Dubai Marina",
-            "Palm Jumeirah",
-            "Downtown Dubai",
-            "Al Barsha",
-          ],
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Dubai",
-            addressCountry: "AE",
-          },
-          sameAs: [
-            "https://www.instagram.com/fixoonova/",
-            "https://www.facebook.com/profile.php?id=61591712577093",
-          ],
+          ...localBusinessSchema,
+          image: heroSlides[0]?.src ?? localBusinessSchema.image,
         },
         {
           "@type": "Service",
           "@id": `${SITE_URL}/#service`,
+          name: "Building Maintenance Services",
           serviceType: "Building Maintenance",
           provider: {
-            "@id": `${SITE_URL}/#organization`,
+            "@id": `${SITE_URL}/#localbusiness`,
           },
           areaServed: ["Dubai", "Dubai South"],
           hasOfferCatalog: {
@@ -395,11 +374,6 @@ export default function IndexPage() {
         },
       ],
     });
-    document.head.appendChild(script);
-
-    return () => {
-      document.getElementById(scriptId)?.remove();
-    };
   }, []);
 
   useEffect(() => {
@@ -464,8 +438,9 @@ export default function IndexPage() {
               </div>
 
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
+                <label htmlFor="popup-service" className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
                 <select
+                  id="popup-service"
                   name="popup-service"
                   required
                   defaultValue=""
@@ -483,8 +458,9 @@ export default function IndexPage() {
               </div>
 
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
+                <label htmlFor="popup-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                 <textarea
+                  id="popup-message"
                   name="popup-message"
                   rows={3}
                   required
@@ -593,11 +569,15 @@ export default function IndexPage() {
                       <div className="overflow-hidden rounded-xl border border-white/10 bg-black/40">
                         <img
                           src={slide.src}
+                          srcSet={slide.srcSet}
+                          sizes="(max-width: 1024px) 100vw, 58vw"
                           alt={slide.alt}
                           className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[56vh]"
                           width={1200}
                           height={900}
                           loading={index === 0 ? "eager" : "lazy"}
+                          decoding={index === 0 ? "sync" : "async"}
+                          fetchPriority={index === 0 ? "high" : "low"}
                         />
                       </div>
                     </CarouselItem>
@@ -679,8 +659,9 @@ export default function IndexPage() {
                 <PopupField label="Email" name="video-email" type="email" required compact />
 
                 <div>
-                  <label className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
+                  <label htmlFor="video-service" className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
                   <select
+                    id="video-service"
                     name="video-service"
                     required
                     defaultValue=""
@@ -698,8 +679,9 @@ export default function IndexPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
+                  <label htmlFor="video-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                   <textarea
+                    id="video-message"
                     name="video-message"
                     rows={2}
                     placeholder="Describe your issue or preferred visit time..."
@@ -1264,8 +1246,9 @@ export default function IndexPage() {
               <PopupField label="Email" name="home-email" type="email" required />
 
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
+                <label htmlFor="home-service" className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
                 <select
+                  id="home-service"
                   name="home-service"
                   required
                   defaultValue=""
@@ -1283,8 +1266,9 @@ export default function IndexPage() {
               </div>
 
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
+                <label htmlFor="home-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                 <textarea
+                  id="home-message"
                   name="home-message"
                   rows={7}
                   required
@@ -1328,8 +1312,9 @@ function PopupField({
 }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
+      <label htmlFor={name} className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
       <input
+        id={name}
         name={name}
         type={type}
         required={required}

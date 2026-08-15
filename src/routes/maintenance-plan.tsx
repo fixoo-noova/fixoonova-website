@@ -1,9 +1,16 @@
+import { useEffect } from "react";
 import { FORM_SOURCES } from "@/lib/emailjs";
 import {
   FormSubmitFeedback,
   FormSuccessMessage,
   useContactFormSubmit,
 } from "@/hooks/useContactFormSubmit";
+import { SITE_URL } from "@/lib/seo";
+import {
+  injectJsonLd,
+  localBusinessSchema,
+  organizationSchema,
+} from "@/lib/structuredData";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -134,6 +141,27 @@ const faqs = [
 
 export default function MaintenancePlanPage() {
   const quoteForm = useContactFormSubmit(FORM_SOURCES.maintenancePlan);
+
+  useEffect(() => {
+    return injectJsonLd("fixoo-nova-maintenance-schema", {
+      "@context": "https://schema.org",
+      "@graph": [
+        organizationSchema,
+        localBusinessSchema,
+        {
+          "@type": "Service",
+          "@id": `${SITE_URL}/maintenance-plan#service`,
+          name: "Annual Maintenance Contract",
+          serviceType: "Annual Maintenance Contract",
+          url: `${SITE_URL}/maintenance-plan`,
+          description:
+            "Annual maintenance contracts in Dubai covering AC, plumbing, electrical and preventive property maintenance.",
+          provider: { "@id": `${SITE_URL}/#localbusiness` },
+          areaServed: ["Dubai", "Dubai South"],
+        },
+      ],
+    });
+  }, []);
 
   return (
     <>
@@ -362,10 +390,11 @@ export default function MaintenancePlanPage() {
             </div>
             <Field label="Email" name="email" type="email" required />
             <div>
-              <label className="text-xs uppercase tracking-widest text-muted-foreground">
+              <label htmlFor="property-type" className="text-xs uppercase tracking-widest text-muted-foreground">
                 Property Type
               </label>
               <select
+                id="property-type"
                 name="property-type"
                 required
                 defaultValue=""
@@ -381,10 +410,11 @@ export default function MaintenancePlanPage() {
               </select>
             </div>
             <div>
-              <label className="text-xs uppercase tracking-widest text-muted-foreground">
+              <label htmlFor="plan" className="text-xs uppercase tracking-widest text-muted-foreground">
                 Preferred Plan
               </label>
               <select
+                id="plan"
                 name="plan"
                 required
                 defaultValue=""
@@ -402,10 +432,11 @@ export default function MaintenancePlanPage() {
               </select>
             </div>
             <div>
-              <label className="text-xs uppercase tracking-widest text-muted-foreground">
+              <label htmlFor="message" className="text-xs uppercase tracking-widest text-muted-foreground">
                 Message
               </label>
               <textarea
+                id="message"
                 name="message"
                 rows={4}
                 placeholder="Property location, number of AC units, any specific concerns..."
@@ -445,8 +476,9 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
+      <label htmlFor={name} className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
       <input
+        id={name}
         name={name}
         type={type}
         required={required}

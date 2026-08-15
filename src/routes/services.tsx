@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Wind,
@@ -17,6 +17,12 @@ import {
 } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FORM_SOURCES } from "@/lib/emailjs";
+import { SITE_URL } from "@/lib/seo";
+import {
+  injectJsonLd,
+  localBusinessSchema,
+  organizationSchema,
+} from "@/lib/structuredData";
 import {
   FormSubmitFeedback,
   FormSuccessMessage,
@@ -159,6 +165,39 @@ export default function ServicesPage() {
   const [showServicePopup, setShowServicePopup] = useState(false);
   const [selectedPopupService, setSelectedPopupService] = useState("");
 
+  useEffect(() => {
+    return injectJsonLd("fixoo-nova-services-schema", {
+      "@context": "https://schema.org",
+      "@graph": [
+        organizationSchema,
+        localBusinessSchema,
+        {
+          "@type": "Service",
+          "@id": `${SITE_URL}/services#service`,
+          name: "Building Maintenance Services",
+          serviceType: "Building Maintenance",
+          url: `${SITE_URL}/services`,
+          description:
+            "Building maintenance services in Dubai South and across Dubai including AC, HVAC, plumbing, electrical, renovation, cleaning, handyman, ELV and AMC.",
+          provider: { "@id": `${SITE_URL}/#localbusiness` },
+          areaServed: ["Dubai", "Dubai South"],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Fixoo Nova Services",
+            itemListElement: featuredServices.map((service) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: service.t,
+                description: service.d,
+              },
+            })),
+          },
+        },
+      ],
+    });
+  }, []);
+
   const openServicePopup = (service: string) => {
     setSelectedPopupService(service);
     popupForm.reset();
@@ -190,8 +229,9 @@ export default function ServicesPage() {
               <Field label="Email" name="popup-email" type="email" required />
 
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
+                <label htmlFor="popup-service" className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
                 <select
+                  id="popup-service"
                   name="popup-service"
                   required
                   value={selectedPopupService}
@@ -210,8 +250,9 @@ export default function ServicesPage() {
               </div>
 
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
+                <label htmlFor="popup-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                 <textarea
+                  id="popup-message"
                   name="popup-message"
                   rows={4}
                   required
@@ -337,10 +378,11 @@ export default function ServicesPage() {
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
               <Field label="Email" name="email" type="email" required />
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">
+                <label htmlFor="service" className="text-xs uppercase tracking-widest text-muted-foreground">
                   Service
                 </label>
                 <select
+                  id="service"
                   name="service"
                   required
                   defaultValue=""
@@ -359,8 +401,9 @@ export default function ServicesPage() {
             </div>
 
             <div className="mt-5">
-              <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
+              <label htmlFor="message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
               <textarea
+                id="message"
                 name="message"
                 rows={5}
                 required
@@ -401,8 +444,9 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
+      <label htmlFor={name} className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
       <input
+        id={name}
         name={name}
         type={type}
         required={required}

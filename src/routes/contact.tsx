@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
 import { FORM_SOURCES } from "@/lib/emailjs";
 import {
@@ -5,9 +6,21 @@ import {
   FormSuccessMessage,
   useContactFormSubmit,
 } from "@/hooks/useContactFormSubmit";
+import {
+  injectJsonLd,
+  localBusinessSchema,
+  organizationSchema,
+} from "@/lib/structuredData";
 
 export default function ContactPage() {
   const contactForm = useContactFormSubmit(FORM_SOURCES.contactPage);
+
+  useEffect(() => {
+    return injectJsonLd("fixoo-nova-contact-schema", {
+      "@context": "https://schema.org",
+      "@graph": [organizationSchema, localBusinessSchema],
+    });
+  }, []);
 
   return (
     <>
@@ -92,10 +105,11 @@ export default function ContactPage() {
           <Field label="Email" name="email" type="email" required />
           <Field label="Service Required" name="service" />
           <div>
-            <label className="text-xs tracking-widest text-muted-foreground uppercase">
+            <label htmlFor="message" className="text-xs tracking-widest text-muted-foreground uppercase">
               Message
             </label>
             <textarea
+              id="message"
               name="message"
               rows={5}
               required
@@ -134,8 +148,9 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs tracking-widest text-muted-foreground uppercase">{label}</label>
+      <label htmlFor={name} className="text-xs tracking-widest text-muted-foreground uppercase">{label}</label>
       <input
+        id={name}
         name={name}
         type={type}
         required={required}
