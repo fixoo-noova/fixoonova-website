@@ -55,6 +55,30 @@ function applyPageSeo(html: string, page: PageSeo) {
   return next;
 }
 
+function copyDir(src: string, dest: string, skipNames: Set<string> = new Set()) {
+  if (!fs.existsSync(src)) return;
+  fs.mkdirSync(dest, { recursive: true });
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+    if (skipNames.has(entry.name)) continue;
+    const from = path.join(src, entry.name);
+    const to = path.join(dest, entry.name);
+    if (entry.isDirectory()) copyDir(from, to, skipNames);
+    else fs.copyFileSync(from, to);
+  }
+}
+
+function copyHostingerBackend(distDir: string) {
+  const root = process.cwd();
+  copyDir(path.join(root, "api"), path.join(distDir, "api"), new Set(["config.php"]));
+  copyDir(path.join(root, "uploads"), path.join(distDir, "uploads"));
+  copyDir(path.join(root, "sql"), path.join(distDir, "sql"));
+
+  // Ensure uploads exists even if empty
+  fs.mkdirSync(path.join(distDir, "uploads"), { recursive: true });
+  const keep = path.join(distDir, "uploads", ".gitkeep");
+  if (!fs.existsSync(keep)) fs.writeFileSync(keep, "");
+}
+
 export function prerenderRouteHtml(): Plugin {
   return {
     name: "prerender-route-html",
@@ -75,6 +99,10 @@ export function prerenderRouteHtml(): Plugin {
         fs.mkdirSync(outDir, { recursive: true });
         fs.writeFileSync(path.join(outDir, "index.html"), html);
       }
+
+      // Hostinger deploys only `dist` — include PHP API + uploads every build
+      copyHostingerBackend(distDir);
+      console.log("Hostinger: copied api/, uploads/, sql/ into dist/");
     },
   };
 }

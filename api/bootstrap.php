@@ -4,16 +4,42 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 
 $configPath = __DIR__ . '/config.php';
-if (!is_file($configPath)) {
+$CONFIG = null;
+
+if (is_file($configPath)) {
+  /** @var array $CONFIG */
+  $CONFIG = require $configPath;
+} else {
+  // Fallback for Hostinger Git deploys (set these in hPanel → Environment variables)
+  $dbName = getenv('BLOG_DB_NAME') ?: '';
+  $dbUser = getenv('BLOG_DB_USER') ?: '';
+  $dbPass = getenv('BLOG_DB_PASS') ?: '';
+  $adminUser = getenv('BLOG_ADMIN_USER') ?: 'admin';
+  $adminHash = getenv('BLOG_ADMIN_PASSWORD_HASH') ?: '';
+
+  if ($dbName !== '' && $dbUser !== '' && $dbPass !== '' && $adminHash !== '') {
+    $CONFIG = [
+      'db_host' => getenv('BLOG_DB_HOST') ?: 'localhost',
+      'db_name' => $dbName,
+      'db_user' => $dbUser,
+      'db_pass' => $dbPass,
+      'admin_username' => $adminUser,
+      'admin_password_hash' => $adminHash,
+      'site_url' => rtrim(getenv('BLOG_SITE_URL') ?: 'https://fixoonova.ae', '/'),
+      'uploads_path' => getenv('BLOG_UPLOADS_PATH') ?: (__DIR__ . '/../uploads'),
+      'uploads_url' => rtrim(getenv('BLOG_UPLOADS_URL') ?: 'https://fixoonova.ae/uploads', '/'),
+      'token_ttl_hours' => (int) (getenv('BLOG_TOKEN_TTL_HOURS') ?: 24),
+    ];
+  }
+}
+
+if (!is_array($CONFIG)) {
   http_response_code(500);
   echo json_encode([
-    'error' => 'API not configured. Copy api/config.example.php to api/config.php and fill credentials.',
+    'error' => 'API not configured. Add api/config.php on the server, or set BLOG_DB_* environment variables in Hostinger.',
   ]);
   exit;
 }
-
-/** @var array $CONFIG */
-$CONFIG = require $configPath;
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 $allowed = rtrim((string) $CONFIG['site_url'], '/');
