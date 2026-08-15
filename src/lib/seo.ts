@@ -256,11 +256,55 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       </main>
     `,
   },
+  "/blog": {
+    title: "Building Maintenance Blog Dubai | Fixoo Nova",
+    description:
+      "Tips and guides from Fixoo Nova on AC, plumbing, electrical and property maintenance for homes and businesses in Dubai.",
+    path: "/blog",
+    h1: "Fixoo Nova Blog",
+    crawlerHtml: `
+      <main>
+        <section>
+          <h1>Fixoo Nova Blog</h1>
+          <p>Practical guides on building maintenance, AC care, plumbing and property upkeep across Dubai and Dubai South.</p>
+        </section>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/maintenance-plan">Maintenance Plan</a>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </main>
+    `,
+  },
 };
 
 export function getPageSeo(pathname: string): PageSeo {
   const known = PAGE_SEO[pathname];
   if (known) return known;
+
+  if (pathname === "/blog" || pathname.startsWith("/blog/")) {
+    const base = PAGE_SEO["/blog"];
+    return {
+      title: base?.title ?? "Blog | Fixoo Nova",
+      description:
+        base?.description ?? "Building maintenance tips and guides from Fixoo Nova in Dubai.",
+      path: pathname,
+      h1: base?.h1 ?? "Blog",
+    };
+  }
+
+  if (pathname.startsWith("/admin/")) {
+    return {
+      title: "Admin | Fixoo Nova",
+      description: "Fixoo Nova content administration.",
+      path: pathname,
+      h1: "Admin",
+      noindex: true,
+    };
+  }
 
   return {
     title: "Page Not Found | Fixoo Nova",

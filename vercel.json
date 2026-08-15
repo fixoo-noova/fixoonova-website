@@ -8,6 +8,8 @@
     { "source": "/maintenance-plan/", "destination": "/maintenance-plan/index.html" },
     { "source": "/contact", "destination": "/contact/index.html" },
     { "source": "/contact/", "destination": "/contact/index.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/", "destination": "/blog/index.html" },
     { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ]
 }
