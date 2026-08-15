@@ -2,10 +2,14 @@
   RewriteEngine On
   RewriteBase /
 
+  RewriteRule ^api/ - [L]
+  RewriteRule ^uploads/ - [L]
+
   RewriteRule ^about/?$ /about/index.html [L]
   RewriteRule ^services/?$ /services/index.html [L]
   RewriteRule ^maintenance-plan/?$ /maintenance-plan/index.html [L]
   RewriteRule ^contact/?$ /contact/index.html [L]
+  RewriteRule ^blog/?$ /blog/index.html [L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

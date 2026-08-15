@@ -17,6 +17,10 @@ dist-ssr
 .env
 .env.*
 !.env.example
+api/config.php
+uploads/*
+!uploads/.gitkeep
+!uploads/.htaccess
 
 # Wrangler / Cloudflare
 .wrangler/
