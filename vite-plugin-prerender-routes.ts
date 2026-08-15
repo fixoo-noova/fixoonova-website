@@ -48,7 +48,7 @@ function applyPageSeo(html: string, page: PageSeo) {
   if (page.crawlerHtml) {
     next = next.replace(
       /<!--SSR_START-->[\s\S]*?<!--SSR_END-->/,
-      `<!--SSR_START-->${page.crawlerHtml.trim()}<!--SSR_END-->`,
+      `<!--SSR_START-->\n      <div class="seo-crawler" aria-hidden="true">\n${page.crawlerHtml.trim()}\n      </div>\n      <!--SSR_END-->`,
     );
   }
 

@@ -223,6 +223,20 @@
         src: url("/fonts/inter-700.woff2") format("woff2");
       }
     </style>
+    <style>
+      /* Hide SEO prerender HTML until React replaces #root — prevents the plain-text flash */
+      .seo-crawler {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+    </style>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -237,6 +251,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="root">
       <!--SSR_START-->
+      <div class="seo-crawler" aria-hidden="true">
       <main>
         <section>
           <h1>Building Maintenance Company in Dubai</h1>
@@ -483,6 +498,7 @@
           </p>
         </section>
       </main>
+      </div>
       <!--SSR_END-->
     </div>
     <noscript>
