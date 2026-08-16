@@ -171,9 +171,9 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     `,
   },
   "/maintenance-plan": {
-    title: "Annual Maintenance Contract Dubai | Fixoo Nova",
+    title: "Annual Maintenance Contract (AMC) Dubai | Fixoo Nova",
     description:
-      "Protect your villa, apartment or office with Fixoo Nova annual maintenance contracts in Dubai—AC, plumbing, electrical and preventive care.",
+      "Protect your villa, apartment or office with Fixoo Nova AMC plans in Dubai—AC, plumbing, electrical and preventive maintenance.",
     path: "/maintenance-plan",
     h1: "Annual Maintenance Contract in Dubai",
     crawlerHtml: `
@@ -218,9 +218,9 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     `,
   },
   "/contact": {
-    title: "Contact Fixoo Nova | Maintenance Dubai South",
+    title: "Contact Fixoo Nova | Building Maintenance Dubai South",
     description:
-      "Contact Fixoo Nova for building maintenance in Dubai South and Dubai. Book AC, plumbing, electrical, renovation or general maintenance.",
+      "Contact Fixoo Nova for building maintenance in Dubai South and across Dubai. Book AC, plumbing, electrical, renovation or general maintenance.",
     path: "/contact",
     h1: "Contact Fixoo Nova — Book Building Maintenance in Dubai",
     crawlerHtml: `
