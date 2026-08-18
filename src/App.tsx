@@ -10,6 +10,7 @@ import MaintenancePlanPage from "@/routes/maintenance-plan";
 import BlogPage from "@/routes/blog";
 import BlogPostPage from "@/routes/blog-post";
 import AdminBlogPage from "@/routes/admin/blog";
+import DubaiSouthPage from "@/routes/building-maintenance-dubai-south";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -55,6 +56,8 @@ export default function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/maintenance-plan" element={<MaintenancePlanPage />} />
+          <Route path="/building-maintenance-dubai-south" element={<DubaiSouthPage />} />
+          <Route path="/building-maintenance-dubai-south/" element={<DubaiSouthPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/admin/blog" element={<AdminBlogPage />} />

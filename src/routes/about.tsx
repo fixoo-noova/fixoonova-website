@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Target, Eye, Award, CheckCircle2, ArrowRight } from "lucide-react";
 import team from "@/assets/team.jpg";
 import living from "@/assets/project-living.jpg";
+import { DUBAI_SOUTH_PATH } from "@/lib/seo";
 import {
   injectJsonLd,
   localBusinessSchema,
@@ -62,7 +63,11 @@ export default function AboutPage() {
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
                 For over 28 years, we have served homeowners, landlords and businesses with
               dependable property maintenance from routine AC servicing and plumbing repairs to
-                electrical work and full building care throughout Dubai.
+                electrical work and full building care throughout Dubai, with dedicated support in{" "}
+                <Link to={DUBAI_SOUTH_PATH} className="text-white underline-offset-4 hover:underline">
+                  Dubai South
+                </Link>
+                .
               </p>
             </div>
           </div>

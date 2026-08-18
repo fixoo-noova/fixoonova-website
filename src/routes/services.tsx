@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FORM_SOURCES } from "@/lib/emailjs";
-import { SITE_URL } from "@/lib/seo";
+import { DUBAI_SOUTH_PATH, SITE_URL } from "@/lib/seo";
 import {
   injectJsonLd,
   localBusinessSchema,
@@ -287,7 +287,11 @@ export default function ServicesPage() {
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
           From routine upkeep to complete transformations Fixoo Nova handles every detail with
-          master-level care.
+          master-level care across Dubai, with dedicated support in{" "}
+          <Link to={DUBAI_SOUTH_PATH} className="text-foreground underline-offset-4 hover:underline">
+            Dubai South
+          </Link>
+          .
         </p>
       </section>
 

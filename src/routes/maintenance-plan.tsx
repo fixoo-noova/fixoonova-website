@@ -5,7 +5,7 @@ import {
   FormSuccessMessage,
   useContactFormSubmit,
 } from "@/hooks/useContactFormSubmit";
-import { SITE_URL } from "@/lib/seo";
+import { DUBAI_SOUTH_PATH, SITE_URL } from "@/lib/seo";
 import {
   injectJsonLd,
   localBusinessSchema,
@@ -177,7 +177,11 @@ export default function MaintenancePlanPage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Protect your home or business with a single annual contract AC, plumbing,
-              electrical and general maintenance handled by one trusted team across Dubai.
+              electrical and general maintenance handled by one trusted team across Dubai, including{" "}
+              <Link to={DUBAI_SOUTH_PATH} className="text-foreground underline-offset-4 hover:underline">
+                Dubai South
+              </Link>
+              .
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#get-quote" className="btn-primary">

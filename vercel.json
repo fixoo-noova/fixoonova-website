@@ -10,6 +10,8 @@
     { "source": "/contact/", "destination": "/contact/index.html" },
     { "source": "/blog", "destination": "/blog/index.html" },
     { "source": "/blog/", "destination": "/blog/index.html" },
+    { "source": "/building-maintenance-dubai-south", "destination": "/building-maintenance-dubai-south/index.html" },
+    { "source": "/building-maintenance-dubai-south/", "destination": "/building-maintenance-dubai-south/index.html" },
     { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ]
 }

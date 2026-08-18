@@ -10,6 +10,7 @@
   RewriteRule ^maintenance-plan/?$ /maintenance-plan/index.html [L]
   RewriteRule ^contact/?$ /contact/index.html [L]
   RewriteRule ^blog/?$ /blog/index.html [L]
+  RewriteRule ^building-maintenance-dubai-south/?$ /building-maintenance-dubai-south/index.html [L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

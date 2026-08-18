@@ -3,7 +3,7 @@ import path from "node:path";
 import type { Plugin } from "vite";
 import { absoluteUrl, DEFAULT_OG_IMAGE, PAGE_SEO, SITE_NAME, type PageSeo } from "./src/lib/seo";
 
-const ROUTES_TO_PRERENDER = ["/about", "/services", "/maintenance-plan", "/contact", "/blog"] as const;
+const ROUTES_TO_PRERENDER = ["/about", "/services", "/maintenance-plan", "/contact", "/blog", "/building-maintenance-dubai-south"] as const;
 
 function escapeHtml(value: string) {
   return value

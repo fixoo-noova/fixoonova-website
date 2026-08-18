@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/fixoo-nova-logo.png";
-import { OFFICE_ADDRESS } from "@/lib/seo";
+import { DUBAI_SOUTH_PATH, OFFICE_ADDRESS } from "@/lib/seo";
 
 export function Footer() {
   return (
@@ -30,7 +30,10 @@ export function Footer() {
             </div>
             <p className="text-white/80 text-sm max-w-md leading-relaxed">
               Your complete building maintenance partner in Dubai. We deliver premium AC, plumbing,
-              electrical and property maintenance services with dedicated support across Dubai South
+              electrical and property maintenance services with dedicated support across{" "}
+              <Link to={DUBAI_SOUTH_PATH} className="text-white hover:text-primary transition-colors">
+                Dubai South
+              </Link>{" "}
               and surrounding communities.
             </p>
           </div>
@@ -42,6 +45,7 @@ export function Footer() {
                 { to: "/about", label: "About" },
                 { to: "/services", label: "Services" },
                 { to: "/maintenance-plan", label: "Maintenance Plan" },
+                { to: DUBAI_SOUTH_PATH, label: "Dubai South" },
                 { to: "/blog", label: "Blog" },
                 { to: "/contact", label: "Contact" },
               ].map((l) => (

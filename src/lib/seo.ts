@@ -14,6 +14,8 @@ export const OFFICE_ADDRESS = {
 export const DEFAULT_OG_IMAGE =
   "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1780903670/hero-banner-1_xdunup.jpg";
 
+export const DUBAI_SOUTH_PATH = "/building-maintenance-dubai-south";
+
 export type PageSeo = {
   title: string;
   description: string;
@@ -26,9 +28,9 @@ export type PageSeo = {
 
 export const PAGE_SEO: Record<string, PageSeo> = {
   "/": {
-    title: "Building Maintenance Dubai South | Fixoo Nova",
+    title: "Building Maintenance Company in Dubai | Fixoo Nova",
     description:
-      "Fixoo Nova offers 24/7 building & property maintenance in Dubai South and Dubai for homes and businesses AC, plumbing, electrical, renovation and AMC.",
+      "Trusted building maintenance company in Dubai providing AC, plumbing, electrical, handyman and renovation services across Dubai, with dedicated support in Dubai South.",
     path: "/",
     h1: "Building Maintenance Company in Dubai",
   },
@@ -42,7 +44,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       <main>
         <section>
           <h1>About Fixoo Nova Building Maintenance Company in Dubai</h1>
-          <p>Fixoo Nova is a building maintenance company in Dubai with more than 28 years of hands-on experience. We deliver AC, plumbing, electrical, handyman and property maintenance services for homes, villas and commercial buildings, with dedicated support in Dubai South.</p>
+          <p>Fixoo Nova is a building maintenance company in Dubai with more than 28 years of hands-on experience. We deliver AC, plumbing, electrical, handyman and property maintenance services for homes, villas and commercial buildings, with dedicated support in <a href="/building-maintenance-dubai-south">Dubai South</a>.</p>
           <img src="https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1780903670/hero-banner-3_nmgyob.jpg" alt="Dubai villa maintained by Fixoo Nova building maintenance technicians" width="1920" height="1080" />
         </section>
         <section>
@@ -78,7 +80,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     `,
   },
   "/services": {
-    title: "Maintenance Services Dubai South | Fixoo Nova",
+    title: "Building Maintenance Services in Dubai | Fixoo Nova",
     description:
       "Explore Fixoo Nova building maintenance in Dubai South and Dubai: AC, HVAC, plumbing, electrical, renovation, cleaning, handyman, ELV and AMC.",
     path: "/services",
@@ -87,7 +89,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       <main>
         <section>
           <h1>Building Maintenance Services in Dubai</h1>
-          <p>Fixoo Nova provides a complete suite of building maintenance services in Dubai for villas, apartments, offices and commercial properties, with dedicated support in Dubai South.</p>
+          <p>Fixoo Nova provides a complete suite of building maintenance services in Dubai for villas, apartments, offices and commercial properties, with dedicated support in <a href="/building-maintenance-dubai-south">Dubai South</a>.</p>
         </section>
         <section>
           <h2>Featured building maintenance services</h2>
@@ -189,7 +191,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       <main>
         <section>
           <h1>Annual Maintenance Contract in Dubai</h1>
-          <p>Protect your home or business with a single annual maintenance contract covering AC, plumbing, electrical and general property care across Dubai, including Dubai South.</p>
+          <p>Protect your home or business with a single annual maintenance contract covering AC, plumbing, electrical and general property care across Dubai, including <a href="/building-maintenance-dubai-south">Dubai South</a>.</p>
           <img src="https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1780903670/hero-banner-1_xdunup.jpg" alt="Fixoo Nova technician performing scheduled AC maintenance in Dubai" width="1200" height="900" />
         </section>
         <section>
@@ -227,7 +229,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     `,
   },
   "/contact": {
-    title: "Contact Fixoo Nova | Building Maintenance Dubai South",
+    title: "Contact Fixoo Nova | Building Maintenance Dubai",
     description:
       "Contact Fixoo Nova for building maintenance in Dubai South and across Dubai. Book AC, plumbing, electrical, renovation or general maintenance.",
     path: "/contact",
@@ -288,13 +290,96 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       </main>
     `,
   },
+  "/building-maintenance-dubai-south": {
+    title: "Building Maintenance in Dubai South | Fixoo Nova",
+    description:
+      "Building and property maintenance in Dubai South: AC, plumbing, electrical and more. 24/7 support from Fixoo Nova.",
+    path: "/building-maintenance-dubai-south",
+    h1: "Building Maintenance in Dubai South",
+    crawlerHtml: `
+      <main>
+        <section>
+          <h1>Building Maintenance in Dubai South</h1>
+          <p>Need something fixed, serviced, or looked after in Dubai South? Fixoo Nova handles building and property maintenance for apartments, villas, offices and commercial spaces across the community, from a quick repair to ongoing care.</p>
+          <p>24/7 Support. Professional Technicians. Residential &amp; Commercial.</p>
+          <p><a href="/contact">Request a Service</a> · <a href="https://wa.me/971508001238">Call / WhatsApp</a></p>
+        </section>
+        <section>
+          <h2>What We Handle in Dubai South</h2>
+          <h3>AC &amp; HVAC</h3>
+          <p>Servicing, cleaning and repairs to keep things running through the heat.</p>
+          <h3>Plumbing</h3>
+          <p>Leaks, blockages, drainage and fixture issues.</p>
+          <h3>Electrical</h3>
+          <p>Repairs and maintenance for homes and businesses.</p>
+          <h3>Handyman</h3>
+          <p>Everyday fixes and small installations.</p>
+          <h3>Renovation</h3>
+          <p>Updates and repair work for properties that need refreshing.</p>
+          <h3>ELV Systems</h3>
+          <p>Support for selected low-voltage systems.</p>
+          <h3>Annual Maintenance Contracts</h3>
+          <p>Planned servicing so nothing gets missed. <a href="/maintenance-plan">View maintenance plans</a>.</p>
+          <p><a href="/services">View All Services</a></p>
+        </section>
+        <section>
+          <h2>Homes and Businesses, Covered</h2>
+          <h3>Residential</h3>
+          <p>Apartments, villas and homes across Dubai South.</p>
+          <h3>Commercial</h3>
+          <p>Offices and businesses that need reliable upkeep.</p>
+        </section>
+        <section>
+          <h2>Why People Choose Fixoo Nova</h2>
+          <ul>
+            <li>28+ years in property maintenance, since 1998</li>
+            <li>Available 24/7, including urgent jobs</li>
+            <li>Technicians who know what they're doing</li>
+            <li>Clear pricing before work starts</li>
+            <li>One team for every maintenance need, instead of juggling different contractors</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Also Serving</h2>
+          <p>Dubai South is our main focus, but we cover other communities too: DIP, Expo City, Villanova, Discovery Gardens, DAMAC Hills 2, JVC, JVT.</p>
+        </section>
+        <section>
+          <h2>Get in Touch</h2>
+          <p>Small repair or ongoing maintenance. Reach out and we'll take it from there.</p>
+          <p>Call/WhatsApp: <a href="tel:+971508001238">+971 50 800 1238</a></p>
+          <p>Email: <a href="mailto:info@fixoonova.ae">info@fixoonova.ae</a></p>
+          <p><a href="/contact">Request a Service</a></p>
+        </section>
+        <section>
+          <h2>FAQs</h2>
+          <h3>Do you cover Dubai South?</h3>
+          <p>Yes, it's one of our main service areas for homes, offices and commercial properties.</p>
+          <h3>What services do you offer there?</h3>
+          <p>AC, plumbing, electrical, handyman, renovation and more. See the list above.</p>
+          <h3>Do you maintain apartments and villas?</h3>
+          <p>Yes, both.</p>
+          <h3>Can I set up an annual maintenance contract?</h3>
+          <p>Yes, tailored to your property's needs.</p>
+        </section>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/maintenance-plan">Maintenance Plan</a>
+          <a href="/building-maintenance-dubai-south">Dubai South</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </main>
+    `,
+  },
 };
 
 export function getPageSeo(pathname: string): PageSeo {
-  const known = PAGE_SEO[pathname];
+  const normalized = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  const known = PAGE_SEO[normalized];
   if (known) return known;
 
-  if (pathname === "/blog" || pathname.startsWith("/blog/")) {
+  if (normalized === "/blog" || normalized.startsWith("/blog/")) {
     const base = PAGE_SEO["/blog"];
     return {
       title: base?.title ?? "Blog | Fixoo Nova",

@@ -42,7 +42,7 @@ import projectPlumbing from "@/assets/plumbing.webp";
 import team from "@/assets/team.jpg";
 import kitchen from "@/assets/project-kitchen.jpg";
 import servicesVideo from "../../public/ac-repair.mp4";
-import { SITE_URL } from "@/lib/seo";
+import { DUBAI_SOUTH_PATH, SITE_URL } from "@/lib/seo";
 import {
   injectJsonLd,
   localBusinessSchema,
@@ -882,10 +882,17 @@ export default function IndexPage() {
               </span>
               <h2 className="font-display text-4xl sm:text-5xl mt-3 mb-4 leading-tight">
                 Serving Dubai with Dedicated Support in{" "}
-                <span className="text-gradient-gold">Dubai South</span>.
+                <Link to={DUBAI_SOUTH_PATH} className="text-gradient-gold">
+                  Dubai South
+                </Link>
+                .
               </h2>
               <p className="text-muted-foreground mb-4">
-                We provide building maintenance across Dubai communities including Dubai South, DIP,
+                We provide building maintenance across Dubai communities including{" "}
+                <Link to={DUBAI_SOUTH_PATH} className="text-foreground underline-offset-4 hover:underline">
+                  Dubai South
+                </Link>
+                , DIP,
                 Villanova, Discovery Gardens, Damac Hills 2, Expo City, JVC, JVT, Business Bay,
                 Dubai Marina, Palm Jumeirah and Downtown Dubai.
               </p>
@@ -1112,10 +1119,18 @@ export default function IndexPage() {
             <p>
               Fixoo Nova proudly provides building maintenance services across Dubai. As a trusted
               building maintenance company in Dubai, we focus on fast response, clear communication
-              and reliable workmanship for homes, villas, apartments and commercial properties with dedicated support for Dubai South and surrounding communities.
+              and reliable workmanship for homes, villas, apartments and commercial properties with dedicated support for{" "}
+              <Link to={DUBAI_SOUTH_PATH} className="text-foreground underline-offset-4 hover:underline">
+                Dubai South
+              </Link>{" "}
+              and surrounding communities.
             </p>
             <p>
-              Property owners in Dubai South, Dubai Investment Park (DIP), Villanova, Discovery
+              Property owners in{" "}
+              <Link to={DUBAI_SOUTH_PATH} className="text-foreground underline-offset-4 hover:underline">
+                Dubai South
+              </Link>
+              , Dubai Investment Park (DIP), Villanova, Discovery
               Gardens and Damac Hills 2 choose us for routine property maintenance and urgent
               call-outs alike. Whether you need AC cleaning after a dusty summer, plumbing and drain
               cleaning after a leak, electrical safety checks, or a full annual maintenance
@@ -1144,7 +1159,11 @@ export default function IndexPage() {
               {areasWeServe.map((area) => (
                 <li key={area} className="flex items-start gap-2.5 text-sm">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                  <span>{area}</span>
+                  {area === "Dubai South" ? (
+                    <Link to={DUBAI_SOUTH_PATH}>{area}</Link>
+                  ) : (
+                    <span>{area}</span>
+                  )}
                 </li>
               ))}
             </ul>
