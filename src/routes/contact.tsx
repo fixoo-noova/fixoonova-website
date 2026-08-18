@@ -11,6 +11,7 @@ import {
   localBusinessSchema,
   organizationSchema,
 } from "@/lib/structuredData";
+import { OFFICE_ADDRESS } from "@/lib/seo";
 
 export default function ContactPage() {
   const contactForm = useContactFormSubmit(FORM_SOURCES.contactPage);
@@ -70,14 +71,16 @@ export default function ContactPage() {
               v: "+971 50 800 1238",
               h: "https://wa.me/971508001238",
             },
-            { icon: MapPin, t: "Address", v: "Dubai South, Dubai, United Arab Emirates" },
+            {
+              icon: MapPin,
+              t: "Address",
+              v: OFFICE_ADDRESS.display,
+              h: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS.display)}`,
+            },
             { icon: Clock, t: "Hours", v: "24 / 7 — Always on call" },
-          ].map((c) => (
-            <a
-              key={c.t}
-              href={c.h ?? "#"}
-              className="block p-6 premium-card premium-card-hover"
-            >
+          ].map((c) => {
+            const className = "block p-6 premium-card premium-card-hover";
+            const body = (
               <div className="flex items-start gap-4">
                 <div className="icon-gold shrink-0">
                   <c.icon className="h-5 w-5 text-primary-foreground" />
@@ -89,8 +92,27 @@ export default function ContactPage() {
                   <div className="font-medium mt-1">{c.v}</div>
                 </div>
               </div>
-            </a>
-          ))}
+            );
+
+            if (c.h) {
+              return (
+                <a
+                  key={c.t}
+                  href={c.h}
+                  className={className}
+                  {...(c.h.startsWith("http") ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+                >
+                  {body}
+                </a>
+              );
+            }
+
+            return (
+              <div key={c.t} className={className}>
+                {body}
+              </div>
+            );
+          })}
         </div>
 
         <form

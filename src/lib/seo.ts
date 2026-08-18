@@ -2,6 +2,15 @@ export const SITE_URL = "https://fixoonova.ae";
 
 export const SITE_NAME = "Fixoo Nova";
 
+export const OFFICE_ADDRESS = {
+  name: "Fixoo Nova Building Maintenance",
+  streetAddress: "ML7 Office, Wafi Residence",
+  addressLocality: "Oud Metha",
+  addressRegion: "Dubai",
+  addressCountry: "AE",
+  display: "Fixoo Nova Building Maintenance, ML7 Office, Wafi Residence, Oud Metha, Dubai",
+};
+
 export const DEFAULT_OG_IMAGE =
   "https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto,f_auto,w_1200,h_630,c_fill/v1780903670/hero-banner-1_xdunup.jpg";
 
@@ -239,7 +248,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
           <p>Phone: <a href="tel:+971508001238">+971 50 800 1238</a></p>
           <p>Email: <a href="mailto:info@fixoonova.ae">info@fixoonova.ae</a></p>
           <p>WhatsApp: <a href="https://wa.me/971508001238">Chat with our team</a></p>
-          <p>Address: Dubai South, Dubai, United Arab Emirates</p>
+          <p>Address: Fixoo Nova Building Maintenance, ML7 Office, Wafi Residence, Oud Metha, Dubai</p>
           <p>Hours: 24/7 — always on call</p>
         </section>
         <section>

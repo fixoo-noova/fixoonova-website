@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/seo";
+import { OFFICE_ADDRESS, SITE_URL } from "@/lib/seo";
 
 export const organizationSchema = {
   "@type": "Organization",
@@ -28,9 +28,11 @@ export const localBusinessSchema = {
     "Building maintenance company in Dubai South and across Dubai for AC, plumbing, electrical, renovation and AMC services.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Dubai",
-    addressRegion: "Dubai",
-    addressCountry: "AE",
+    name: OFFICE_ADDRESS.name,
+    streetAddress: OFFICE_ADDRESS.streetAddress,
+    addressLocality: OFFICE_ADDRESS.addressLocality,
+    addressRegion: OFFICE_ADDRESS.addressRegion,
+    addressCountry: OFFICE_ADDRESS.addressCountry,
   },
   areaServed: [
     "Dubai",

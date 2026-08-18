@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/fixoo-nova-logo.png";
+import { OFFICE_ADDRESS } from "@/lib/seo";
 
 export function Footer() {
   return (
@@ -68,11 +69,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-                <span>
-                  Dubai South · Dubai Investment Park · Discovery Gardens
-                  <br />
-                  Villanova · Damac Hills 2 · JVC · Dubai Marina · Business Bay
-                </span>
+                <span>{OFFICE_ADDRESS.display}</span>
               </li>
             </ul>
             <div className="mt-6 flex items-center gap-3">
