@@ -21,7 +21,7 @@ export default function AboutPage() {
     <>
       <section className="px-6 lg:px-10 pt-24 pb-16 max-w-7xl mx-auto">
         <h1 className="font-display text-5xl sm:text-6xl mt-5 mb-6 max-w-4xl leading-tight">
-          About Fixoo Nova — Building Maintenance Company in{" "}
+          About Fixoo Nova Building Maintenance Company in{" "}
           <span className="text-gradient-gold">Dubai</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
@@ -60,7 +60,7 @@ export default function AboutPage() {
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
                 For over 28 years, we have served homeowners, landlords and businesses with
-                dependable property maintenance — from routine AC servicing and plumbing repairs to
+              dependable property maintenance from routine AC servicing and plumbing repairs to
                 electrical work and full building care throughout Dubai.
               </p>
             </div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
           {
             icon: Target,
             title: "Our Mission",
-            desc: "To make property maintenance effortless — practical, convenient solutions delivered on time, every time.",
+            desc: "To make property maintenance effortless practical, convenient solutions delivered on time, every time.",
           },
           {
             icon: Eye,
@@ -111,7 +111,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               With more than 28 years in the field, we adopt a systematic strategy to plan every job
-              — adding measurable value to your property and your day. From the first call to the
+               adding measurable value to your property and your day. From the first call to the
               final inspection, our team operates with discipline and care.
             </p>
             <p className="text-muted-foreground leading-relaxed">
@@ -204,7 +204,7 @@ export default function AboutPage() {
               },
               {
                 t: "Responsiveness",
-                d: "We pick up. We show up. We follow up — every single time.",
+            d: "We pick up. We show up. We follow up every single time.",
               },
             ].map((v) => (
               <div key={v.t} className="border-l-2 border-primary/60 pl-5">

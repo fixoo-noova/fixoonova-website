@@ -100,7 +100,7 @@ export function prerenderRouteHtml(): Plugin {
         fs.writeFileSync(path.join(outDir, "index.html"), html);
       }
 
-      // Hostinger deploys only `dist` — include PHP API + uploads every build
+      // Hostinger deploys only `dist` include PHP API + uploads every build
       copyHostingerBackend(distDir);
       console.log("Hostinger: copied api/, uploads/, sql/ into dist/");
     },

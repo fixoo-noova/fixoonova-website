@@ -84,7 +84,7 @@ const services = [
   {
     img: ac,
     title: "AC Services",
-    desc: "Professional AC services in Dubai including AC cleaning, duct sanitization, gas top-up, repair and full HVAC maintenance for villas, apartments and commercial buildings — with dedicated support across Dubai South.",
+    desc: "Professional AC services in Dubai including AC cleaning, duct sanitization, gas top-up, repair and full HVAC maintenance for villas, apartments and commercial buildings with dedicated support across Dubai South.",
   },
   {
     img: electrician,
@@ -99,12 +99,12 @@ const services = [
   {
     img: reno,
     title: "Renovation Services",
-    desc: "Complete renovation services in Dubai for villas, apartments, offices and bathrooms — premium finishes and end-to-end project management from survey to handover.",
+    desc: "Complete renovation services in Dubai for villas, apartments, offices and bathrooms premium finishes and end-to-end project management from survey to handover.",
   },
   {
     img: clean,
     title: "Deep Cleaning Services",
-    desc: "Thorough deep cleaning in Dubai for homes and offices — sofa, mattress, carpet, curtain and full property sanitization using eco-friendly agents.",
+    desc: "Thorough deep cleaning in Dubai for homes and offices sofa, mattress, carpet, curtain and full property sanitization using eco-friendly agents.",
   },
   {
     img: kitchen,
@@ -159,7 +159,7 @@ const homeFaqs = [
   },
   {
     q: "Can I get plumbing and drain cleaning in Dubai?",
-    a: "Yes. We provide plumbing services and drain cleaning across Dubai — leak repairs, drainage maintenance, pipe work and emergency call-outs for villas and apartments.",
+    a: "Yes. We provide plumbing services and drain cleaning across Dubai leak repairs, drainage maintenance, pipe work and emergency call-outs for villas and apartments.",
   },
   {
     q: "Do you provide electrical services in Dubai?",
@@ -207,7 +207,7 @@ const testimonials = [
     name: "Priya S.",
     role: "Apartment Resident, Marina",
     quote:
-      "The deep cleaning service was outstanding. Worth every dirham — I've already booked again.",
+      "The deep cleaning service was outstanding. Worth every dirham I've already booked again.",
   },
   {
     name: "Omar H.",
@@ -644,7 +644,7 @@ export default function IndexPage() {
                 Book a service <span className="text-gradient-gold">visit</span>
               </h2>
               <p className="mt-2 text-sm leading-snug text-muted-foreground">
-                Our team will confirm your appointment — usually within the hour.
+                Our team will confirm your appointment usually within the hour.
               </p>
 
               <form
@@ -704,7 +704,7 @@ export default function IndexPage() {
 
                 {videoBookingForm.isSuccess ? (
                   <p className="text-center text-xs text-muted-foreground">
-                    Thank you — we will contact you shortly to confirm your visit.
+                    Thank you we will contact you shortly to confirm your visit.
                   </p>
                 ) : videoBookingForm.isError ? (
                   <FormSubmitFeedback error={videoBookingForm.error} />
@@ -812,8 +812,7 @@ export default function IndexPage() {
                 </h2>
                 <p className="mt-5 max-w-lg text-muted-foreground leading-relaxed">
                   Skip the emergency call-outs. Our annual maintenance plan covers scheduled
-                  servicing, preventive inspections and priority support for your entire property —
-                  all year round.
+                  servicing, preventive inspections and priority support for your entire property all year round.
                 </p>
                 <ul className="mt-8 grid gap-4 sm:grid-cols-2">
                   {[
@@ -850,7 +849,7 @@ export default function IndexPage() {
                     <div>
                       <h3 className="font-display text-xl">Scheduled visits</h3>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        4 to 12 visits per year depending on your plan — we handle the calendar.
+                        4 to 12 visits per year depending on your plan we handle the calendar.
                       </p>
                     </div>
                   </div>
@@ -868,12 +867,12 @@ export default function IndexPage() {
                     <div>
                       <h3 className="font-display text-xl">Transparent reporting</h3>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        Detailed reports after every visit — apartments, villas and offices.
+                        Detailed reports after every visit apartments, villas and offices.
                       </p>
                     </div>
                   </div>
                   <p className="rounded-xl border border-primary/20 bg-primary/5 px-5 py-4 text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">Free site survey</span> — we
+                  <span className="font-medium text-foreground">Free site survey</span> we
                     assess your property and recommend the right plan with no obligation.
                   </p>
                 </div>
@@ -961,7 +960,7 @@ export default function IndexPage() {
             </h2>
           </div>
           <p className="max-w-md text-white/70">
-            Specialist AC repairs, electrical installations and plumbing fixes — the core work our
+            Specialist AC repairs, electrical installations and plumbing fixes the core work our
             team delivers every day across Dubai.
           </p>
         </div>
@@ -1040,7 +1039,7 @@ export default function IndexPage() {
             {[
               "28+ years of industry experience across Dubai",
               "Licensed and insured building maintenance company in Dubai",
-              "Transparent quotes — no hidden surprises",
+              "Transparent quotes no hidden surprises",
               "Eco-friendly chemicals and cleaning agents",
               "24/7 emergency response available",
               "Workmanship warranty on every project",
@@ -1108,7 +1107,7 @@ export default function IndexPage() {
               Every job. <span className="text-gradient-gold">Same enthusiasm.</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              From a single repair to a complete renovation — book a hassle-free appointment with
+              From a single repair to a complete renovation book a hassle-free appointment with
               our building maintenance team in Dubai today.
             </p>
             <a href="tel:+971508001238" className="btn-primary">
@@ -1132,8 +1131,7 @@ export default function IndexPage() {
             <p>
               Fixoo Nova proudly provides building maintenance services across Dubai. As a trusted
               building maintenance company in Dubai, we focus on fast response, clear communication
-              and reliable workmanship for homes, villas, apartments and commercial properties —
-              with dedicated support for Dubai South and surrounding communities.
+              and reliable workmanship for homes, villas, apartments and commercial properties with dedicated support for Dubai South and surrounding communities.
             </p>
             <p>
               Property owners in Dubai South, Dubai Investment Park (DIP), Villanova, Discovery
@@ -1146,7 +1144,7 @@ export default function IndexPage() {
               We also serve established communities such as JVC, JVT, Dubai Marina, Downtown Dubai,
               Business Bay, Al Barsha and Palm Jumeirah. Local knowledge matters: technicians who
               regularly work in these areas understand building types, access rules and typical
-              maintenance patterns — which means quicker diagnostics and fewer return visits.
+              maintenance patterns which means quicker diagnostics and fewer return visits.
             </p>
             <p>
               With more than 28 years of industry experience, Fixoo Nova combines AC services,

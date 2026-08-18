@@ -113,7 +113,7 @@ const plans = [
 
 const benefits = [
   "One contract covers AC, plumbing, electrical and general upkeep",
-  "Predictable yearly cost — no surprise emergency bills",
+  "Predictable yearly cost no surprise emergency bills",
   "Certified technicians who know your property",
   "Written reports after every visit",
   "Workmanship warranty on all maintenance work",
@@ -123,7 +123,7 @@ const benefits = [
 const faqs = [
   {
     q: "What does the yearly maintenance plan include?",
-    a: "Our annual maintenance contract (AMC) bundles scheduled AC servicing, plumbing checks, electrical inspections and general handyman support into one plan — tailored to your property type and size.",
+    a: "Our annual maintenance contract (AMC) bundles scheduled AC servicing, plumbing checks, electrical inspections and general handyman support into one plan tailored to your property type and size.",
   },
   {
     q: "Can I customize the plan for my villa or office?",
@@ -175,7 +175,7 @@ export default function MaintenancePlanPage() {
               <span className="text-gradient-gold">Dubai</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Protect your home or business with a single annual contract — AC, plumbing,
+              Protect your home or business with a single annual contract AC, plumbing,
               electrical and general maintenance handled by one trusted team across Dubai.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -258,7 +258,7 @@ export default function MaintenancePlanPage() {
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               Pricing is tailored after a free site survey. Below are our most popular plan
-              structures — we&apos;ll match the right coverage to your property.
+              structures we&apos;ll match the right coverage to your property.
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
@@ -366,7 +366,7 @@ export default function MaintenancePlanPage() {
             </h2>
             <p className="mt-5 max-w-xl text-muted-foreground">
               Tell us about your property and we&apos;ll arrange a free survey with a transparent
-              quote — no obligation.
+              quote no obligation.
             </p>
             <div className="mt-8 space-y-3 text-sm text-muted-foreground">
               <p>Phone: +971 50 800 1238</p>
@@ -425,10 +425,10 @@ export default function MaintenancePlanPage() {
                 </option>
                 {plans.map((plan) => (
                   <option key={plan.name} value={plan.name}>
-                    {plan.name} — {plan.bestFor}
+                    {plan.name} {plan.bestFor}
                   </option>
                 ))}
-                <option value="custom">Not sure — recommend for me</option>
+                <option value="custom">Not sure recommend for me</option>
               </select>
             </div>
             <div>
@@ -451,7 +451,7 @@ export default function MaintenancePlanPage() {
               {quoteForm.isLoading
                 ? "Sending..."
                 : quoteForm.isSuccess
-                  ? "Request Sent — we'll be in touch"
+                  ? "Request Sent we'll be in touch"
                   : "Request Free Quote"}
             </button>
             <FormSubmitFeedback error={quoteForm.error} />

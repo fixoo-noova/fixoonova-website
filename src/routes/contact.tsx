@@ -28,7 +28,7 @@ export default function ContactPage() {
       <section className="px-6 lg:px-10 pt-24 pb-12 max-w-7xl mx-auto">
         <span className="eyebrow">GET IN TOUCH</span>
         <h1 className="font-display text-5xl sm:text-6xl mt-4 mb-6 max-w-4xl leading-tight">
-          Contact Fixoo Nova — Book Building Maintenance in{" "}
+          Contact Fixoo Nova Book Building Maintenance in{" "}
           <span className="text-gradient-gold">Dubai</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl">
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 Same-day visits across Dubai.
               </h2>
               <p className="text-muted-foreground">
-                Reach us by phone, email or WhatsApp — we usually respond within an hour.
+                Reach us by phone, email or WhatsApp we usually respond within an hour.
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
               v: OFFICE_ADDRESS.display,
               h: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS.display)}`,
             },
-            { icon: Clock, t: "Hours", v: "24 / 7 — Always on call" },
+            { icon: Clock, t: "Hours", v: "24 / 7 Always on call" },
           ].map((c) => {
             const className = "block p-6 premium-card premium-card-hover";
             const body = (
@@ -146,7 +146,7 @@ export default function ContactPage() {
             {contactForm.isLoading
               ? "Sending..."
               : contactForm.isSuccess
-                ? "Thank you — we'll be in touch"
+                ? "Thank you we'll be in touch"
                 : "Send Message"}
           </button>
           <FormSubmitFeedback error={contactForm.error} />

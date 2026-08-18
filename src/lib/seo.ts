@@ -28,7 +28,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   "/": {
     title: "Building Maintenance Dubai South | Fixoo Nova",
     description:
-      "Fixoo Nova offers 24/7 building & property maintenance in Dubai South and Dubai for homes and businesses—AC, plumbing, electrical, renovation and AMC.",
+      "Fixoo Nova offers 24/7 building & property maintenance in Dubai South and Dubai for homes and businesses AC, plumbing, electrical, renovation and AMC.",
     path: "/",
     h1: "Building Maintenance Company in Dubai",
   },
@@ -37,11 +37,11 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description:
       "Learn about Fixoo Nova, a building maintenance company serving Dubai South and Dubai with 28+ years of maintenance expertise.",
     path: "/about",
-    h1: "About Fixoo Nova — Building Maintenance Company in Dubai",
+    h1: "About Fixoo Nova Building Maintenance Company in Dubai",
     crawlerHtml: `
       <main>
         <section>
-          <h1>About Fixoo Nova — Building Maintenance Company in Dubai</h1>
+          <h1>About Fixoo Nova Building Maintenance Company in Dubai</h1>
           <p>Fixoo Nova is a building maintenance company in Dubai with more than 28 years of hands-on experience. We deliver AC, plumbing, electrical, handyman and property maintenance services for homes, villas and commercial buildings, with dedicated support in Dubai South.</p>
           <img src="https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1780903670/hero-banner-3_nmgyob.jpg" alt="Dubai villa maintained by Fixoo Nova building maintenance technicians" width="1920" height="1080" />
         </section>
@@ -182,7 +182,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   "/maintenance-plan": {
     title: "Annual Maintenance Contract (AMC) Dubai | Fixoo Nova",
     description:
-      "Protect your villa, apartment or office with Fixoo Nova AMC plans in Dubai—AC, plumbing, electrical and preventive maintenance.",
+      "Protect your villa, apartment or office with Fixoo Nova AMC plans in Dubai AC, plumbing, electrical and preventive maintenance.",
     path: "/maintenance-plan",
     h1: "Annual Maintenance Contract in Dubai",
     crawlerHtml: `
@@ -231,11 +231,11 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description:
       "Contact Fixoo Nova for building maintenance in Dubai South and across Dubai. Book AC, plumbing, electrical, renovation or general maintenance.",
     path: "/contact",
-    h1: "Contact Fixoo Nova — Book Building Maintenance in Dubai",
+    h1: "Contact Fixoo Nova Book Building Maintenance in Dubai",
     crawlerHtml: `
       <main>
         <section>
-          <h1>Contact Fixoo Nova — Book Building Maintenance in Dubai</h1>
+          <h1>Contact Fixoo Nova Book Building Maintenance in Dubai</h1>
           <p>Hassle-free booking for AC, plumbing, electrical, handyman and full property maintenance across Dubai and Dubai South.</p>
           <img src="https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1780903670/hero-banner-1_xdunup.jpg" alt="Dubai property ready for a Fixoo Nova building maintenance visit" width="1920" height="1080" />
         </section>
@@ -249,7 +249,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
           <p>Email: <a href="mailto:info@fixoonova.ae">info@fixoonova.ae</a></p>
           <p>WhatsApp: <a href="https://wa.me/971508001238">Chat with our team</a></p>
           <p>Address: Fixoo Nova Building Maintenance, ML7 Office, Wafi Residence, Oud Metha, Dubai</p>
-          <p>Hours: 24/7 — always on call</p>
+          <p>Hours: 24/7 always on call</p>
         </section>
         <section>
           <h2>Send a maintenance enquiry</h2>

@@ -88,7 +88,7 @@ const groups = [
         t: "Annual Maintenance Contracts",
         d: "Preventive, routine, corrective and civil maintenance.",
       },
-      { icon: Wrench, t: "Handyman", d: "From a light bulb to custom fixes — done right." },
+      { icon: Wrench, t: "Handyman", d: "From a light bulb to custom fixes done right." },
     ],
   },
   {
@@ -112,11 +112,11 @@ const groups = [
       {
         icon: Sparkles,
         t: "Deep Cleaning",
-        d: "Apartments, villas and offices — eco-friendly agents.",
+        d: "Apartments, villas and offices eco-friendly agents.",
       },
       { icon: Sofa, t: "Sofa Cleaning", d: "Pollution-free sofas, extended life." },
       { icon: Bed, t: "Mattress & Carpet", d: "Removes dust mites, allergens and stains." },
-      { icon: Sparkles, t: "Curtain Cleaning", d: "Onsite curtain cleaning — sanitized in place." },
+      { icon: Sparkles, t: "Curtain Cleaning", d: "Onsite curtain cleaning sanitized in place." },
     ],
   },
   {
@@ -134,7 +134,7 @@ const groups = [
       {
         icon: Droplets,
         t: "Water Tank Cleaning",
-        d: "Drain, disinfect, scrub — minimal interruption.",
+        d: "Drain, disinfect, scrub minimal interruption.",
       },
       {
         icon: Droplets,
@@ -285,7 +285,7 @@ export default function ServicesPage() {
           <span className="text-gradient-gold">Dubai</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
-          From routine upkeep to complete transformations — Fixoo Nova handles every detail with
+          From routine upkeep to complete transformations Fixoo Nova handles every detail with
           master-level care.
         </p>
       </section>
