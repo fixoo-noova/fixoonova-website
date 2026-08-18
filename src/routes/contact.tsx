@@ -12,6 +12,12 @@ import {
   organizationSchema,
 } from "@/lib/structuredData";
 import { OFFICE_ADDRESS } from "@/lib/seo";
+import { cloudinarySrcSet } from "@/lib/images";
+
+const contactHero = cloudinarySrcSet(
+  "https://res.cloudinary.com/dg7r4k0up/image/upload/v1780903670/hero-banner-1_xdunup.jpg",
+  [640, 960, 1280, 1920],
+);
 
 export default function ContactPage() {
   const contactForm = useContactFormSubmit(FORM_SOURCES.contactPage);
@@ -40,9 +46,12 @@ export default function ContactPage() {
       <section className="px-6 lg:px-10 pb-8 max-w-7xl mx-auto">
         <div className="rounded-3xl overflow-hidden border border-border shadow-elegant relative">
           <img
-            src={"https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1780903670/hero-banner-1_xdunup.jpg"}
+            src={contactHero.src}
+            srcSet={contactHero.srcSet}
+            sizes="100vw"
             alt="Dubai property ready for a Fixoo Nova building maintenance visit"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             width={1920}
             height={1080}
             className="w-full h-64 sm:h-80 object-cover"

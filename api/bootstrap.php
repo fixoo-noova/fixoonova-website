@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
-header('Content-Type: application/json; charset=utf-8');
+$isSitemap = str_ends_with((string) ($_SERVER['SCRIPT_NAME'] ?? ''), 'sitemap.php');
+if (!$isSitemap) {
+  header('Content-Type: application/json; charset=utf-8');
+}
 
 $configPath = __DIR__ . '/config.php';
 $CONFIG = null;

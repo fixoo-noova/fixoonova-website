@@ -208,8 +208,10 @@ export default function MaintenancePlanPage() {
               src={ac}
               alt="Fixoo Nova technician performing scheduled AC maintenance for a Dubai property"
               loading="eager"
+              fetchPriority="high"
               width={1200}
               height={900}
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="aspect-[4/3] w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />

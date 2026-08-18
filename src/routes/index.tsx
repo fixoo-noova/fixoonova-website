@@ -36,7 +36,6 @@ import reno from "@/assets/service-renovation.jpg";
 import clean from "@/assets/service-cleaning.jpg";
 import electrician from "@/assets/electrician.webp";
 import plumbingImg from "@/assets/plumber.webp";
-import acMech from "@/assets/ac mech.webp";
 import productThree from "@/assets/product-3.webp";
 import projectPlumbing from "@/assets/plumbing.webp";
 import team from "@/assets/team.jpg";
@@ -67,15 +66,15 @@ const features = [
 const projectGallery = {
   main: {
     src: productThree,
-    alt: "Technician cleaning a wall-mounted AC unit",
+    alt: "Technician cleaning a wall-mounted AC unit in a Dubai property",
   },
   electrical: {
     src: electrician,
-    alt: "Electrician working on an electrical control panel",
+    alt: "Electrician working on an electrical control panel in Dubai",
   },
   plumbing: {
     src: projectPlumbing,
-    alt: "Plumber performing professional plumbing maintenance",
+    alt: "Plumber performing professional plumbing maintenance in Dubai",
   },
 };
 
@@ -84,31 +83,37 @@ const services = [
   {
     img: ac,
     title: "AC Services",
+    alt: "AC technician servicing an air conditioning unit for a Dubai property",
     desc: "Professional AC services in Dubai including AC cleaning, duct sanitization, gas top-up, repair and full HVAC maintenance for villas, apartments and commercial buildings with dedicated support across Dubai South.",
   },
   {
     img: electrician,
     title: "Electrical Services",
+    alt: "Electrician working on a control panel for building maintenance in Dubai",
     desc: "Certified electrical services in Dubai covering wiring, panels, lighting, ELV systems, intercom, CCTV and access control for residential and commercial properties.",
   },
   {
     img: plumbingImg,
     title: "Plumbing Services",
+    alt: "Plumber repairing pipes and drainage for a Dubai home",
     desc: "Professional plumbing services including leak repairs, drainage maintenance, drain cleaning, pipe replacement and emergency plumbing for villas, apartments and commercial buildings across Dubai.",
   },
   {
     img: reno,
     title: "Renovation Services",
+    alt: "Villa renovation interior completed by Fixoo Nova in Dubai",
     desc: "Complete renovation services in Dubai for villas, apartments, offices and bathrooms premium finishes and end-to-end project management from survey to handover.",
   },
   {
     img: clean,
     title: "Deep Cleaning Services",
+    alt: "Professional deep cleaning of a Dubai apartment by Fixoo Nova",
     desc: "Thorough deep cleaning in Dubai for homes and offices sofa, mattress, carpet, curtain and full property sanitization using eco-friendly agents.",
   },
   {
     img: kitchen,
     title: "Handyman Services & Kitchen Upgrades",
+    alt: "Custom kitchen joinery and fittings installed by Fixoo Nova in Dubai",
     desc: "Reliable handyman services in Dubai plus bespoke kitchen joinery, marble surfaces and modern fittings installed end-to-end by skilled technicians.",
   },
 ];
@@ -760,10 +765,11 @@ export default function IndexPage() {
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={s.img}
-                  alt={s.title}
+                  alt={s.alt}
                   loading="lazy"
-                  width={1024}
-                  height={768}
+                  width={800}
+                  height={600}
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="h-full w-full object-cover group-hover:scale-105 transition duration-700"
                 />
               </div>
@@ -871,6 +877,7 @@ export default function IndexPage() {
           loading="lazy"
           width={1920}
           height={1080}
+          sizes="100vw"
           className="h-[420px] w-full object-cover sm:h-[520px]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-transparent" />
@@ -963,6 +970,7 @@ export default function IndexPage() {
               loading="lazy"
               width={1280}
               height={960}
+              sizes="(max-width: 768px) 100vw, 58vw"
               className="w-full h-full object-cover aspect-[4/3]"
             />
           </div>
@@ -977,6 +985,7 @@ export default function IndexPage() {
                 loading="lazy"
                 width={1280}
                 height={960}
+                sizes="(max-width: 768px) 100vw, 42vw"
                 className="w-full h-full object-cover aspect-[16/10]"
               />
             </div>
@@ -990,6 +999,7 @@ export default function IndexPage() {
                 loading="lazy"
                 width={1280}
                 height={960}
+                sizes="(max-width: 768px) 100vw, 42vw"
                 className="w-full h-full object-cover aspect-[16/10]"
               />
             </div>
@@ -1006,10 +1016,11 @@ export default function IndexPage() {
         >
           <img
             src={team}
-            alt="Fixoo Nova service team"
+            alt="Fixoo Nova technicians providing building maintenance for a Dubai property"
             loading="lazy"
             width={1600}
             height={1067}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-full object-cover"
           />
         </div>

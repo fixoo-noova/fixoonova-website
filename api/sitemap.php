@@ -4,6 +4,7 @@ declare(strict_types=1);
 require __DIR__ . '/bootstrap.php';
 
 header('Content-Type: application/xml; charset=utf-8');
+header('Cache-Control: public, max-age=3600');
 
 $site = rtrim((string) ($CONFIG['site_url'] ?? 'https://fixoonova.ae'), '/');
 

@@ -4,7 +4,8 @@
 
   RewriteRule ^api/ - [L]
   RewriteRule ^uploads/ - [L]
-  RewriteRule ^sitemap\.xml$ /api/sitemap.php [L]
+  # One sitemap only. Former blog/index sitemap URLs all resolve here.
+  RewriteRule ^(blog[-_/])?sitemap([_-]?(index|blog|posts))?\.xml$ /api/sitemap.php [L,NC]
 
   RewriteRule ^about/?$ /about/index.html [L]
   RewriteRule ^services/?$ /services/index.html [L]

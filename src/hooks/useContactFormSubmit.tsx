@@ -25,6 +25,11 @@ export function useContactFormSubmit(formSource: FormSource) {
         await submitContactForm(form, formSource);
         setStatus("success");
         form.reset();
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "generate_lead",
+          form_source: formSource,
+        });
         onSuccess?.();
       } catch (submissionError) {
         setStatus("error");

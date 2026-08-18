@@ -4,11 +4,17 @@ import { Target, Eye, Award, CheckCircle2, ArrowRight } from "lucide-react";
 import team from "@/assets/team.jpg";
 import living from "@/assets/project-living.jpg";
 import { DUBAI_SOUTH_PATH } from "@/lib/seo";
+import { cloudinarySrcSet } from "@/lib/images";
 import {
   injectJsonLd,
   localBusinessSchema,
   organizationSchema,
 } from "@/lib/structuredData";
+
+const aboutHero = cloudinarySrcSet(
+  "https://res.cloudinary.com/dg7r4k0up/image/upload/v1780903670/hero-banner-3_nmgyob.jpg",
+  [640, 960, 1280, 1920],
+);
 
 export default function AboutPage() {
   useEffect(() => {
@@ -43,9 +49,12 @@ export default function AboutPage() {
       <section className="px-6 lg:px-10 pb-8 max-w-7xl mx-auto">
         <div className="rounded-3xl overflow-hidden border border-border shadow-elegant">
           <img
-            src={"https://res.cloudinary.com/dg7r4k0up/image/upload/q_auto/f_auto/v1780903670/hero-banner-3_nmgyob.jpg"}
+            src={aboutHero.src}
+            srcSet={aboutHero.srcSet}
+            sizes="100vw"
             alt="Dubai villa maintained by Fixoo Nova building maintenance technicians"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             width={1920}
             height={1080}
             className="w-full h-[360px] sm:h-[460px] object-cover"
@@ -156,6 +165,7 @@ export default function AboutPage() {
             loading="lazy"
             width={1600}
             height={1067}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-full object-cover"
           />
         </div>
@@ -193,6 +203,7 @@ export default function AboutPage() {
             loading="lazy"
             width={1280}
             height={960}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-full object-cover"
           />
         </div>

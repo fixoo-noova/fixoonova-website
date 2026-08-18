@@ -40,31 +40,37 @@ const featuredServices = [
     img: ac,
     t: "AC & HVAC",
     alt: "AC technician servicing an air conditioning unit for building maintenance in Dubai",
+    d: "AC cleaning, duct sanitization, gas top-up, repair and full HVAC maintenance across Dubai.",
   },
   {
     img: reno,
     t: "Renovation",
     alt: "Villa renovation and interior upgrade completed by Fixoo Nova in Dubai",
+    d: "Villa, apartment, office and bathroom renovation with premium finishes.",
   },
   {
     img: clean,
     t: "Deep Cleaning",
     alt: "Professional deep cleaning of a Dubai apartment by Fixoo Nova",
+    d: "Home and office deep cleaning, sofa, mattress, carpet and curtain sanitization.",
   },
   {
     img: electrical,
     t: "Electrical & ELV",
     alt: "Electrician working on an electrical panel for a Dubai property",
+    d: "Wiring, panels, lighting, CCTV, intercom and access control by certified electricians.",
   },
   {
     img: plumbing,
     t: "Plumbing",
     alt: "Plumber repairing pipes and drainage as part of Dubai building maintenance",
+    d: "Leak repairs, drain cleaning, pipe replacement and emergency plumbing in Dubai.",
   },
   {
     img: kitchen,
     t: "Kitchen & Joinery",
     alt: "Custom kitchen joinery and fittings installed by Fixoo Nova in Dubai",
+    d: "Kitchen upgrades, joinery, marble surfaces and fittings installed end-to-end.",
   },
 ];
 
@@ -154,7 +160,10 @@ const serviceOptions = groups.flatMap((group) =>
 
 const popupServiceOptions = [
   ...new Map(
-    [...serviceOptions.map((option) => [option.value, option]), ...featuredServices.map((service) => [service.t, { label: service.t, value: service.t }])],
+    [
+      ...serviceOptions.map((option) => [option.value, option] as const),
+      ...featuredServices.map((service) => [service.t, { label: service.t, value: service.t }] as const),
+    ],
   ).values(),
   { label: "Other", value: "Other" },
 ];
@@ -300,7 +309,7 @@ export default function ServicesPage() {
           Featured building maintenance services
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {featuredServices.map((s) => (
+          {featuredServices.map((s, index) => (
             <button
               type="button"
               key={s.t}
@@ -310,9 +319,11 @@ export default function ServicesPage() {
               <img
                 src={s.img}
                 alt={s.alt}
-                loading="lazy"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "low"}
                 width={1280}
                 height={960}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="w-full h-56 object-cover group-hover:scale-105 transition duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />

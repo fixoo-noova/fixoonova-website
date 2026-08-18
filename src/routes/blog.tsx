@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { fetchPublishedPosts, type BlogPost, type BlogPagination } from "@/lib/blogApi";
+import { blogCoverAlt, cloudinarySrcSet } from "@/lib/images";
 
 function formatDate(value: string | null) {
   if (!value) return "";
@@ -76,13 +77,19 @@ export default function BlogPage() {
         ) : (
           <>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
+              {posts.map((post) => {
+                const cover = post.coverImage
+                  ? cloudinarySrcSet(post.coverImage, [400, 640, 960])
+                  : null;
+                return (
                 <article key={post.id} className="premium-card premium-card-hover overflow-hidden flex flex-col">
-                  {post.coverImage ? (
+                  {cover ? (
                     <Link to={`/blog/${post.slug}`} className="block overflow-hidden">
                       <img
-                        src={post.coverImage}
-                        alt=""
+                        src={cover.src}
+                        srcSet={cover.srcSet}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        alt={blogCoverAlt(post.title)}
                         loading="lazy"
                         className="h-48 w-full object-cover"
                         width={640}
@@ -113,7 +120,8 @@ export default function BlogPage() {
                     </Link>
                   </div>
                 </article>
-              ))}
+                );
+              })}
             </div>
 
             {pagination && pagination.totalPages > 1 ? (

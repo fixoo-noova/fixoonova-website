@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Submit only this sitemap in Google Search Console.
 Sitemap: https://fixoonova.ae/sitemap.xml

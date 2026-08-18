@@ -4,6 +4,7 @@ import { ArrowLeft, CalendarDays } from "lucide-react";
 import { fetchPublishedPost, type BlogPost } from "@/lib/blogApi";
 import { absoluteUrl, SITE_NAME, SITE_URL } from "@/lib/seo";
 import { injectJsonLd } from "@/lib/structuredData";
+import { blogCoverAlt, cloudinarySrcSet } from "@/lib/images";
 
 function formatDate(value: string | null) {
   if (!value) return "";
@@ -128,6 +129,8 @@ export default function BlogPostPage() {
     );
   }
 
+  const cover = post.coverImage ? cloudinarySrcSet(post.coverImage, [640, 960, 1200]) : null;
+
   return (
     <article className="px-6 lg:px-10 pt-24 pb-24 max-w-3xl mx-auto">
       <Link
@@ -150,13 +153,17 @@ export default function BlogPostPage() {
         ) : null}
       </header>
 
-      {post.coverImage ? (
+      {cover ? (
         <img
-          src={post.coverImage}
-          alt=""
+          src={cover.src}
+          srcSet={cover.srcSet}
+          sizes="(max-width: 768px) 100vw, 768px"
+          alt={blogCoverAlt(post.title)}
           className="mb-10 w-full rounded-2xl object-cover"
           width={1200}
           height={630}
+          loading="eager"
+          fetchPriority="high"
         />
       ) : null}
 
