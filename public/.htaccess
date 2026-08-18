@@ -15,3 +15,11 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
+
+# Long cache for hashed static assets produced by Vite build.
+# This reduces repeat downloads on mobile and improves LCP consistency.
+<IfModule mod_headers.c>
+  <FilesMatch "\\.(js|css|png|jpg|jpeg|webp|gif|svg|woff2|mp4)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

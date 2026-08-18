@@ -259,6 +259,7 @@ export default function IndexPage() {
   const homeContactForm = useContactFormSubmit(FORM_SOURCES.homeContact);
   const [heroApi, setHeroApi] = useState<CarouselApi>();
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
 
   useEffect(() => {
     try {
@@ -346,6 +347,13 @@ export default function IndexPage() {
         },
       ],
     });
+  }, []);
+
+  // Don’t preload/download the 11MB hero video until the main hero image is ready.
+  // This helps mobile LCP and avoids competing for bandwidth during first paint.
+  useEffect(() => {
+    const fallback = window.setTimeout(() => setShouldPlayVideo(true), 2500);
+    return () => window.clearTimeout(fallback);
   }, []);
 
   useEffect(() => {
@@ -550,6 +558,7 @@ export default function IndexPage() {
                           loading={index === 0 ? "eager" : "lazy"}
                           decoding={index === 0 ? "sync" : "async"}
                           fetchPriority={index === 0 ? "high" : "low"}
+                          onLoad={index === 0 ? () => setShouldPlayVideo(true) : undefined}
                         />
                       </div>
                     </CarouselItem>
@@ -591,11 +600,11 @@ export default function IndexPage() {
           <div className="relative h-[30vh] max-h-[260px] overflow-hidden bg-[#090f16] sm:h-[34vh] sm:max-h-[300px] lg:h-full lg:max-h-none">
             <video
               className="absolute inset-0 h-full w-full object-cover"
-              autoPlay
+              autoPlay={shouldPlayVideo}
               muted
               loop
               playsInline
-              preload="metadata"
+              preload={shouldPlayVideo ? "auto" : "none"}
               aria-label="Fixoo Nova maintenance services showcase"
             >
               <source src={servicesVideoSrc} type="video/mp4" />
