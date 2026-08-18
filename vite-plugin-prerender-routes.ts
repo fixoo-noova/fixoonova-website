@@ -52,6 +52,28 @@ function applyPageSeo(html: string, page: PageSeo) {
     );
   }
 
+  // The base `index.html` contains the homepage JSON-LD including a FAQPage graph.
+  // When prerendering other routes, that FAQ content isn't visible there, so strip it.
+  if (page.path !== "/") {
+    const scriptRegex =
+      /<script\s+id="fixoo-nova-home-schema"[^>]*type="application\/ld\+json"\s*>\s*([\s\S]*?)\s*<\/script>/i;
+    const match = scriptRegex.exec(next);
+    if (match?.[1]) {
+      try {
+        const raw = match[1].trim();
+        const parsed = JSON.parse(raw) as { "@graph"?: Array<Record<string, unknown>> };
+        if (Array.isArray(parsed["@graph"])) {
+          parsed["@graph"] = parsed["@graph"]!.filter((n) => n?.["@type"] !== "FAQPage");
+          const updated = JSON.stringify(parsed, null, 2);
+          // Replace the inner JSON only (keep the script tag attributes unchanged).
+          next = next.replace(match[0], match[0].replace(match[1], updated));
+        }
+      } catch {
+        // If parsing fails, fail silently (no schema change rather than breaking HTML).
+      }
+    }
+  }
+
   return next;
 }
 

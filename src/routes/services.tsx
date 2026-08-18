@@ -166,6 +166,7 @@ export default function ServicesPage() {
   const [selectedPopupService, setSelectedPopupService] = useState("");
 
   useEffect(() => {
+    document.getElementById("fixoo-nova-home-schema")?.remove();
     return injectJsonLd("fixoo-nova-services-schema", {
       "@context": "https://schema.org",
       "@graph": [

@@ -22,6 +22,7 @@ export default function BlogPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    document.getElementById("fixoo-nova-home-schema")?.remove();
     let cancelled = false;
     setLoading(true);
     setError(null);

@@ -11,6 +11,7 @@ import {
 
 export default function AboutPage() {
   useEffect(() => {
+    document.getElementById("fixoo-nova-home-schema")?.remove();
     return injectJsonLd("fixoo-nova-about-schema", {
       "@context": "https://schema.org",
       "@graph": [organizationSchema, localBusinessSchema],

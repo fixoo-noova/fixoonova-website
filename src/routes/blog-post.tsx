@@ -23,6 +23,7 @@ export default function BlogPostPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    document.getElementById("fixoo-nova-home-schema")?.remove();
     if (!slug) return;
     let cancelled = false;
     setLoading(true);

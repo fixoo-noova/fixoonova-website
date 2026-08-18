@@ -143,6 +143,7 @@ export default function MaintenancePlanPage() {
   const quoteForm = useContactFormSubmit(FORM_SOURCES.maintenancePlan);
 
   useEffect(() => {
+    document.getElementById("fixoo-nova-home-schema")?.remove();
     return injectJsonLd("fixoo-nova-maintenance-schema", {
       "@context": "https://schema.org",
       "@graph": [

@@ -17,6 +17,7 @@ export default function ContactPage() {
   const contactForm = useContactFormSubmit(FORM_SOURCES.contactPage);
 
   useEffect(() => {
+    document.getElementById("fixoo-nova-home-schema")?.remove();
     return injectJsonLd("fixoo-nova-contact-schema", {
       "@context": "https://schema.org",
       "@graph": [organizationSchema, localBusinessSchema],
