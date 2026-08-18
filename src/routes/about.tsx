@@ -31,6 +31,13 @@ export default function AboutPage() {
           across Dubai. We deliver exceptional AC, plumbing, electrical and technical services
           with the precision, transparency and care your property deserves.
         </p>
+        <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed mt-4">
+          Fixoo Nova provides maintenance support across Dubai, with dedicated support in{" "}
+          <Link to={DUBAI_SOUTH_PATH} className="text-foreground underline-offset-4 hover:underline">
+            Dubai South
+          </Link>
+          .
+        </p>
       </section>
 
       <section className="px-6 lg:px-10 pb-8 max-w-7xl mx-auto">
@@ -63,11 +70,7 @@ export default function AboutPage() {
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
                 For over 28 years, we have served homeowners, landlords and businesses with
               dependable property maintenance from routine AC servicing and plumbing repairs to
-                electrical work and full building care throughout Dubai, with dedicated support in{" "}
-                <Link to={DUBAI_SOUTH_PATH} className="text-white underline-offset-4 hover:underline">
-                  Dubai South
-                </Link>
-                .
+                electrical work and full building care throughout Dubai.
               </p>
             </div>
           </div>

@@ -71,8 +71,16 @@ export default function BlogPostPage() {
     setMeta("description", description);
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
+    setMeta("og:type", "article", "property");
     setMeta("og:url", url, "property");
-    if (post.coverImage) setMeta("og:image", post.coverImage, "property");
+    setMeta("og:site_name", SITE_NAME, "property");
+    if (post.coverImage) {
+      setMeta("og:image", post.coverImage, "property");
+      setMeta("twitter:image", post.coverImage);
+    }
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
 
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
@@ -156,6 +164,24 @@ export default function BlogPostPage() {
         className="blog-content space-y-4 text-base leading-relaxed text-foreground/90 [&_h2]:font-display [&_h2]:text-3xl [&_h2]:mt-10 [&_h2]:mb-3 [&_h3]:font-display [&_h3]:text-2xl [&_h3]:mt-8 [&_h3]:mb-2 [&_a]:text-primary [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded-xl [&_img]:my-6"
         dangerouslySetInnerHTML={{ __html: post.content || "" }}
       />
+
+      <aside className="mt-14 rounded-2xl border border-border bg-card p-6">
+        <h2 className="font-display text-2xl mb-3">Related services</h2>
+        <p className="text-sm text-muted-foreground mb-4">
+          Need help with a property in Dubai? Explore our maintenance services or request a visit.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Link to="/services" className="btn-outline">
+            Services
+          </Link>
+          <Link to="/maintenance-plan" className="btn-outline">
+            Maintenance Plan
+          </Link>
+          <Link to="/contact" className="btn-primary">
+            Contact
+          </Link>
+        </div>
+      </aside>
     </article>
   );
 }

@@ -4,6 +4,7 @@
 
   RewriteRule ^api/ - [L]
   RewriteRule ^uploads/ - [L]
+  RewriteRule ^sitemap\.xml$ /api/sitemap.php [L]
 
   RewriteRule ^about/?$ /about/index.html [L]
   RewriteRule ^services/?$ /services/index.html [L]

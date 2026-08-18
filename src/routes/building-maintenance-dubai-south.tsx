@@ -7,106 +7,81 @@ import {
   CheckCircle2,
   Home,
   Mail,
-  MessageSquare,
   Phone,
   ShieldCheck,
+  Sparkles,
   Wind,
   Wrench,
   Zap,
   Droplets,
   Paintbrush,
 } from "lucide-react";
-import { DUBAI_SOUTH_PATH, SITE_URL } from "@/lib/seo";
+import { SITE_URL } from "@/lib/seo";
 import {
   injectJsonLd,
   localBusinessSchema,
   organizationSchema,
 } from "@/lib/structuredData";
 
-const WHATSAPP_URL = "https://wa.me/971508001238";
-
-const highlights = ["24/7 Support", "Professional Technicians", "Residential & Commercial"];
-
 const services = [
-  {
-    icon: Wind,
-    title: "AC & HVAC",
-    desc: "Servicing, cleaning and repairs to keep things running through the heat.",
-  },
-  {
-    icon: Droplets,
-    title: "Plumbing",
-    desc: "Leaks, blockages, drainage and fixture issues.",
-  },
-  {
-    icon: Zap,
-    title: "Electrical",
-    desc: "Repairs and maintenance for homes and businesses.",
-  },
-  {
-    icon: Wrench,
-    title: "Handyman",
-    desc: "Everyday fixes and small installations.",
-  },
-  {
-    icon: Paintbrush,
-    title: "Renovation",
-    desc: "Updates and repair work for properties that need refreshing.",
-  },
-  {
-    icon: Cctv,
-    title: "ELV Systems",
-    desc: "Support for selected low-voltage systems.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Annual Maintenance Contracts",
-    desc: "Planned servicing so nothing gets missed.",
-    href: "/maintenance-plan",
-  },
+  { icon: Wind, title: "AC & HVAC maintenance" },
+  { icon: Droplets, title: "Plumbing" },
+  { icon: Zap, title: "Electrical services" },
+  { icon: Wrench, title: "Handyman services" },
+  { icon: Paintbrush, title: "Renovation" },
+  { icon: Sparkles, title: "Deep cleaning" },
+  { icon: Cctv, title: "ELV systems" },
+  { icon: ShieldCheck, title: "Annual maintenance contracts", href: "/maintenance-plan" },
 ];
 
 const reasons = [
-  "28+ years in property maintenance, since 1998",
-  "Available 24/7, including urgent jobs",
-  "Technicians who know what they're doing",
-  "Clear pricing before work starts",
-  "One team for every maintenance need, instead of juggling different contractors",
+  "28+ years of experience",
+  "Residential & commercial maintenance",
+  "Professional technicians",
+  "Transparent quotations",
+  "24/7 support",
+  "One maintenance partner for multiple services",
 ];
 
-const alsoServing = [
-  "DIP",
+const areasServed = [
+  "Dubai South",
+  "Dubai Investment Park (DIP)",
   "Expo City",
   "Villanova",
   "Discovery Gardens",
-  "DAMAC Hills 2",
+  "Damac Hills 2",
   "JVC",
   "JVT",
+  "Business Bay",
+  "Dubai Marina",
+  "Downtown Dubai",
+  "Al Barsha",
+  "Palm Jumeirah",
 ];
 
 const dubaiSouthFaqs = [
   {
-    q: "Do you cover Dubai South?",
-    a: "Yes, it's one of our main service areas for homes, offices and commercial properties.",
+    q: "Do you provide building maintenance in Dubai South?",
+    a: "Yes. Dubai South is one of Fixoo Nova's primary service areas for residential, office and commercial property maintenance.",
   },
   {
-    q: "What services do you offer there?",
-    a: "AC, plumbing, electrical, handyman, renovation and more. See the list above.",
+    q: "Do you provide maintenance for offices and commercial properties?",
+    a: "Yes. We support both residential and commercial properties.",
   },
   {
-    q: "Do you maintain apartments and villas?",
-    a: "Yes, both.",
+    q: "Do you offer AC, plumbing and electrical services in Dubai South?",
+    a: "Yes. These are among our core property maintenance services.",
   },
   {
-    q: "Can I set up an annual maintenance contract?",
-    a: "Yes, tailored to your property's needs.",
+    q: "Do you provide Annual Maintenance Contracts in Dubai South?",
+    a: "Yes. Maintenance plans can be arranged according to the property's requirements.",
   },
 ];
 
 export default function DubaiSouthPage() {
   useEffect(() => {
     document.getElementById("fixoo-nova-home-schema")?.remove();
-    const pageUrl = `${SITE_URL}${DUBAI_SOUTH_PATH}`;
+    const canonical = `${SITE_URL}/building-maintenance-dubai-south/`;
     return injectJsonLd("fixoo-nova-dubai-south-schema", {
       "@context": "https://schema.org",
       "@graph": [
@@ -114,27 +89,18 @@ export default function DubaiSouthPage() {
         localBusinessSchema,
         {
           "@type": "Service",
-          "@id": `${pageUrl}#service`,
+          "@id": `${canonical}#service`,
           name: "Building Maintenance in Dubai South",
           serviceType: "Building Maintenance",
-          url: pageUrl,
+          url: canonical,
           description:
-            "Building and property maintenance in Dubai South. AC, plumbing, electrical and more. 24/7 support from Fixoo Nova.",
+            "Professional building and property maintenance services in Dubai South for homes, offices and commercial properties.",
           provider: { "@id": `${SITE_URL}/#localbusiness` },
-          areaServed: [
-            "Dubai South",
-            "Dubai Investment Park",
-            "Expo City",
-            "Villanova",
-            "Discovery Gardens",
-            "Damac Hills 2",
-            "JVC",
-            "JVT",
-          ],
+          areaServed: areasServed,
         },
         {
           "@type": "BreadcrumbList",
-          "@id": `${pageUrl}#breadcrumb`,
+          "@id": `${canonical}#breadcrumb`,
           itemListElement: [
             {
               "@type": "ListItem",
@@ -145,14 +111,14 @@ export default function DubaiSouthPage() {
             {
               "@type": "ListItem",
               position: 2,
-              name: "Building Maintenance in Dubai South",
-              item: pageUrl,
+              name: "Building Maintenance Dubai South",
+              item: canonical,
             },
           ],
         },
         {
           "@type": "FAQPage",
-          "@id": `${pageUrl}#faq`,
+          "@id": `${canonical}#faq`,
           mainEntity: dubaiSouthFaqs.map((faq) => ({
             "@type": "Question",
             name: faq.q,
@@ -174,44 +140,31 @@ export default function DubaiSouthPage() {
           Building Maintenance in{" "}
           <span className="text-gradient-gold">Dubai South</span>
         </h1>
+        <h2 className="font-display text-2xl sm:text-3xl mb-5 max-w-3xl">
+          Professional Property Maintenance in Dubai South
+        </h2>
         <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
-          Need something fixed, serviced, or looked after in Dubai South? Fixoo Nova handles
-          building and property maintenance for apartments, villas, offices and commercial spaces
-          across the community, from a quick repair to ongoing care.
+          Fixoo Nova provides professional building and property maintenance services in Dubai South
+          for residential, commercial and office properties. With 28+ years of experience, our team
+          supports property owners, landlords, businesses and residents with reliable maintenance,
+          repairs and ongoing property care. Dubai South is our primary local service area, while
+          Fixoo Nova also provides maintenance services across Dubai.
         </p>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {highlights.map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-primary/25 bg-primary/5 px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-muted-foreground"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-        <div className="mt-8 flex flex-wrap gap-4">
-          <Link to="/contact" className="btn-primary">
-            Request a Service <ArrowRight className="h-4 w-4" />
-          </Link>
-          <a href={WHATSAPP_URL} className="btn-outline" target="_blank" rel="noreferrer noopener">
-            <Phone className="h-4 w-4" /> Call / WhatsApp
-          </a>
-        </div>
       </section>
 
       <section className="px-6 lg:px-10 pb-16 max-w-7xl mx-auto">
         <h2 className="font-display text-4xl sm:text-5xl mb-8">
-          What We Handle in <span className="text-gradient-gold">Dubai South</span>
+          Property Maintenance Services in{" "}
+          <span className="text-gradient-gold">Dubai South</span>
         </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((service) => {
             const Card = (
-              <div className="h-full p-7 premium-card premium-card-hover">
+              <div className="h-full p-6 premium-card premium-card-hover">
                 <div className="icon-gold mb-4">
                   <service.icon className="h-5 w-5 text-primary-foreground" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
+                <h3 className="font-semibold text-base">{service.title}</h3>
               </div>
             );
             return service.href ? (
@@ -230,25 +183,27 @@ export default function DubaiSouthPage() {
 
       <section className="px-6 lg:px-10 pb-16 max-w-7xl mx-auto">
         <h2 className="font-display text-4xl sm:text-5xl mb-8">
-          Homes and Businesses, <span className="text-gradient-gold">Covered</span>
+          Maintenance for Homes &amp; <span className="text-gradient-gold">Businesses</span>
         </h2>
         <div className="grid sm:grid-cols-2 gap-6">
           <div className="p-8 premium-card">
             <div className="icon-gold mb-4">
               <Home className="h-5 w-5 text-primary-foreground" />
             </div>
-            <h3 className="font-display text-2xl mb-2">Residential</h3>
+            <h3 className="font-display text-2xl mb-2">Residential Properties</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Apartments, villas and homes across Dubai South.
+              Maintenance support for villas, apartments and homes, including routine maintenance
+              and repair requirements.
             </p>
           </div>
           <div className="p-8 premium-card">
             <div className="icon-gold mb-4">
               <Building2 className="h-5 w-5 text-primary-foreground" />
             </div>
-            <h3 className="font-display text-2xl mb-2">Commercial</h3>
+            <h3 className="font-display text-2xl mb-2">Offices &amp; Commercial Properties</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Offices and businesses that need reliable upkeep.
+              Maintenance support for offices, businesses and commercial properties requiring
+              reliable ongoing property care.
             </p>
           </div>
         </div>
@@ -257,9 +212,9 @@ export default function DubaiSouthPage() {
       <section className="relative w-full overflow-hidden bg-[#0a1018] py-20 px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <h2 className="font-display text-4xl sm:text-5xl mb-8 text-white">
-            Why People Choose <span className="text-gradient-gold">Fixoo Nova</span>
+            Why <span className="text-gradient-gold">Fixoo Nova?</span>
           </h2>
-          <ul className="space-y-4 max-w-3xl">
+          <ul className="grid sm:grid-cols-2 gap-4 max-w-4xl">
             {reasons.map((item) => (
               <li key={item} className="flex items-start gap-3 text-sm text-white/85">
                 <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
@@ -271,12 +226,15 @@ export default function DubaiSouthPage() {
       </section>
 
       <section className="px-6 lg:px-10 py-16 max-w-7xl mx-auto">
-        <h2 className="font-display text-4xl sm:text-5xl mb-5">Also Serving</h2>
+        <h2 className="font-display text-4xl sm:text-5xl mb-5">
+          Serving Dubai South &amp; Across Dubai
+        </h2>
         <p className="text-muted-foreground max-w-3xl leading-relaxed mb-6">
-          Dubai South is our main focus, but we cover other communities too:
+          Dubai South is our primary service area, while Fixoo Nova also provides building
+          maintenance services across Dubai. We serve areas including:
         </p>
         <ul className="flex flex-wrap gap-3">
-          {alsoServing.map((area) => (
+          {areasServed.map((area) => (
             <li
               key={area}
               className="rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground"
@@ -289,9 +247,12 @@ export default function DubaiSouthPage() {
 
       <section className="px-6 lg:px-10 pb-16 max-w-7xl mx-auto">
         <div className="rounded-3xl border border-primary/20 bg-card p-10 lg:p-14 shadow-elegant">
-          <h2 className="font-display text-4xl sm:text-5xl mb-4">Get in Touch</h2>
+          <h2 className="font-display text-4xl sm:text-5xl mb-4">
+            Need Maintenance in <span className="text-gradient-gold">Dubai South?</span>
+          </h2>
           <p className="text-muted-foreground max-w-2xl leading-relaxed mb-8">
-            Small repair or ongoing maintenance. Reach out and we'll take it from there.
+            Whether you need a one-time repair or ongoing property maintenance, contact Fixoo Nova
+            to discuss your requirement.
           </p>
           <ul className="space-y-3 text-sm text-muted-foreground mb-8">
             <li className="flex items-start gap-3">
@@ -304,12 +265,6 @@ export default function DubaiSouthPage() {
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <MessageSquare className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-              <a href={WHATSAPP_URL} className="hover:text-primary" target="_blank" rel="noreferrer noopener">
-                WhatsApp chat
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
               <Mail className="h-4 w-4 mt-0.5 text-primary shrink-0" />
               <a href="mailto:info@fixoonova.ae" className="hover:text-primary">
                 info@fixoonova.ae
@@ -317,7 +272,7 @@ export default function DubaiSouthPage() {
             </li>
           </ul>
           <Link to="/contact" className="btn-primary">
-            Request a Service <ArrowRight className="h-4 w-4" />
+            Request a Quote <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
