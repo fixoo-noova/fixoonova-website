@@ -142,40 +142,12 @@ const homeFaqs = [
     a: "Absolutely. Our Annual Maintenance Contract (AMC) in Dubai covers scheduled AC servicing, plumbing checks, electrical inspections and general property upkeep under one plan.",
   },
   {
-    q: "Do you provide handyman services?",
-    a: "Yes. We offer handyman services in Dubai for small repairs, fixture fixes, fittings and day-to-day property maintenance for homes and offices.",
-  },
-  {
-    q: "Do you serve commercial buildings?",
-    a: "Yes. We deliver building maintenance for commercial and industrial properties across Dubai, including offices, retail spaces and multi-unit buildings.",
-  },
-  {
-    q: "Which Dubai communities do you cover?",
-    a: "We frequently serve Dubai South, DIP, Villanova, Discovery Gardens, Damac Hills 2, Expo City, JVC, JVT, Business Bay, Dubai Marina, Palm Jumeirah, Downtown and Al Barsha. We also serve other Emirates upon request.",
-  },
-  {
     q: "Do you offer AC cleaning and AC services in Dubai?",
     a: "Yes. Our AC services in Dubai include AC cleaning, duct cleaning, repair, gas top-up and preventive HVAC maintenance for residential and commercial units.",
   },
   {
     q: "Can I get plumbing and drain cleaning in Dubai?",
     a: "Yes. We provide plumbing services and drain cleaning across Dubai leak repairs, drainage maintenance, pipe work and emergency call-outs for villas and apartments.",
-  },
-  {
-    q: "Do you provide electrical services in Dubai?",
-    a: "Yes. Our electrical services cover wiring, panels, lighting, ELV, CCTV and access control for homes and commercial properties in Dubai and Dubai South.",
-  },
-  {
-    q: "How quickly can a technician visit my property?",
-    a: "Most bookings are confirmed within the hour during working hours. For Dubai South and nearby areas we prioritize fast response times, with 24/7 emergency support available.",
-  },
-  {
-    q: "Do you offer renovation and deep cleaning in Dubai?",
-    a: "Yes. Alongside core building maintenance, we provide renovation and deep cleaning services for villas, apartments and offices across Dubai.",
-  },
-  {
-    q: "Is Fixoo Nova licensed and insured?",
-    a: "Yes. We are a licensed and insured building maintenance company in Dubai, with vetted technicians and transparent quotes on every job.",
   },
 ];
 
