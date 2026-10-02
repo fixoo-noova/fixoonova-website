@@ -19,6 +19,18 @@ const contactHero = cloudinarySrcSet(
   [640, 960, 1280, 1920],
 );
 
+const contactServices = [
+  "Annual Maintenance Plan",
+  "AC Services",
+  "Electrical Services",
+  "Plumbing Services",
+  "Renovation Services",
+  "Deep Cleaning Services",
+  "Handyman Services & Kitchen Upgrades",
+  "General Maintenance",
+  "Other",
+];
+
 export default function ContactPage() {
   const contactForm = useContactFormSubmit(FORM_SOURCES.contactPage);
 
@@ -159,7 +171,30 @@ export default function ContactPage() {
             <Field label="Phone" name="phone" type="tel" required />
           </div>
           <Field label="Email" name="email" type="email" required />
-          <Field label="Service Required" name="service" />
+          <div>
+            <label
+              htmlFor="service"
+              className="text-xs tracking-widest text-muted-foreground uppercase"
+            >
+              Service Required
+            </label>
+            <select
+              id="service"
+              name="service"
+              required
+              defaultValue=""
+              className="mt-2 w-full bg-background border border-input rounded-lg px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+            >
+              <option value="" disabled>
+                Select a service
+              </option>
+              {contactServices.map((service) => (
+                <option key={service} value={service}>
+                  {service}
+                </option>
+              ))}
+            </select>
+          </div>
           <div>
             <label htmlFor="message" className="text-xs tracking-widest text-muted-foreground uppercase">
               Message
@@ -181,7 +216,7 @@ export default function ContactPage() {
               ? "Sending..."
               : contactForm.isSuccess
                 ? "Thank you we'll be in touch"
-                : "Send Message"}
+                : "Book Now"}
           </button>
           <FormSubmitFeedback error={contactForm.error} />
           <FormSuccessMessage show={contactForm.isSuccess} />
