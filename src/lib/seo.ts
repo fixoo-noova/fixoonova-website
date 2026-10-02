@@ -252,7 +252,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
         <section>
           <h2>Contact details</h2>
           <p>Phone: <a href="tel:+971508001238">+971 50 800 1238</a></p>
-          <p>Email: info [at] fixoonova [dot] ae</p>
+          <p>Email: info@fixoonova.ae</p>
           <p>WhatsApp: <a href="https://wa.me/971508001238">Chat with our team</a></p>
           <p>Address: Fixoo Nova Building Maintenance, ML7 Office, Wafi Residence, Oud Metha, Dubai</p>
           <p>Hours: 24/7 always on call</p>
@@ -349,7 +349,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
           <h2>Need Maintenance in Dubai South?</h2>
           <p>Whether you need a one-time repair or ongoing property maintenance, contact Fixoo Nova to discuss your requirement.</p>
           <p>Call/WhatsApp: <a href="tel:+971508001238">+971 50 800 1238</a></p>
-          <p>Email: info [at] fixoonova [dot] ae</p>
+          <p>Email: info@fixoonova.ae</p>
           <p><a href="/contact">Request a Quote</a></p>
         </section>
         <section>

@@ -87,23 +87,17 @@ export default function ContactPage() {
               </div>
             </a>
           ))}
-          <button
-            type="button"
-            className="block w-full text-left p-6 premium-card premium-card-hover"
-            onClick={() => {
-              window.location.href = ["mailto:", "info", "@", "fixoonova.ae"].join("");
-            }}
-          >
+          <a href="mailto:info@fixoonova.ae" className="block p-6 premium-card premium-card-hover">
             <div className="flex items-start gap-4">
               <div className="icon-gold shrink-0">
                 <Mail className="h-5 w-5 text-primary-foreground" />
               </div>
               <div>
                 <div className="text-xs tracking-widest text-muted-foreground uppercase">Email</div>
-                <div className="font-medium mt-1">info [at] fixoonova [dot] ae</div>
+                <div className="font-medium mt-1">info@fixoonova.ae</div>
               </div>
             </div>
-          </button>
+          </a>
           {[
             {
               icon: MessageSquare,
