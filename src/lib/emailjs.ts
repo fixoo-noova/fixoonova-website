@@ -22,6 +22,7 @@ export type ContactFormPayload = {
   phone: string;
   email: string;
   service: string;
+  location: string;
   message: string;
   property_type: string;
   plan: string;
@@ -33,6 +34,7 @@ const FIELD_KEYS = {
   phone: ["phone", "popup-phone", "video-phone", "home-phone"],
   email: ["email", "popup-email", "video-email", "home-email"],
   service: ["service", "popup-service", "video-service", "home-service"],
+  location: ["location", "popup-location", "video-location", "home-location"],
   message: ["message", "popup-message", "video-message", "home-message"],
   property_type: ["property-type", "property_type"],
   plan: ["plan", "preferred-plan"],
@@ -63,6 +65,7 @@ export function parseContactForm(
   const phone = readFormValue(formData, FIELD_KEYS.phone);
   const email = readFormValue(formData, FIELD_KEYS.email);
   const service = readFormValue(formData, FIELD_KEYS.service);
+  const location = readFormValue(formData, FIELD_KEYS.location);
   const message = readFormValue(formData, FIELD_KEYS.message);
   const property_type = readFormValue(formData, FIELD_KEYS.property_type);
   const plan = readFormValue(formData, FIELD_KEYS.plan);
@@ -77,6 +80,7 @@ export function parseContactForm(
     phone,
     email,
     service: resolvedService,
+    location,
     message,
     property_type,
     plan,
@@ -98,17 +102,17 @@ export function getEmailTemplateKind(payload: ContactFormPayload): EmailTemplate
 
 type RequiredField = keyof Pick<
   ContactFormPayload,
-  "from_name" | "phone" | "email" | "service" | "message" | "property_type" | "plan"
+  "from_name" | "phone" | "email" | "service" | "location" | "message" | "property_type" | "plan"
 >;
 
 const REQUIRED_FIELDS: Record<FormSource, RequiredField[]> = {
-  [FORM_SOURCES.homePopup]: ["from_name", "phone", "service", "message"],
-  [FORM_SOURCES.homeVideoBooking]: ["from_name", "phone", "email", "service", "message"],
-  [FORM_SOURCES.homeContact]: ["from_name", "phone", "email", "service", "message"],
-  [FORM_SOURCES.contactPage]: ["from_name", "phone", "email", "message"],
-  [FORM_SOURCES.servicesPopup]: ["from_name", "phone", "email", "service", "message"],
-  [FORM_SOURCES.servicesInquiry]: ["from_name", "phone", "email", "service", "message"],
-  [FORM_SOURCES.maintenancePlan]: ["from_name", "phone", "email", "property_type", "plan"],
+  [FORM_SOURCES.homePopup]: ["from_name", "phone", "email", "service", "location"],
+  [FORM_SOURCES.homeVideoBooking]: ["from_name", "phone", "email", "service", "location"],
+  [FORM_SOURCES.homeContact]: ["from_name", "phone", "email", "service", "location"],
+  [FORM_SOURCES.contactPage]: ["from_name", "phone", "email", "service", "location"],
+  [FORM_SOURCES.servicesPopup]: ["from_name", "phone", "email", "service", "location"],
+  [FORM_SOURCES.servicesInquiry]: ["from_name", "phone", "email", "service", "location"],
+  [FORM_SOURCES.maintenancePlan]: ["from_name", "phone", "email", "location", "property_type", "plan"],
 };
 
 const FIELD_LABELS: Record<RequiredField, string> = {
@@ -116,6 +120,7 @@ const FIELD_LABELS: Record<RequiredField, string> = {
   phone: "Phone",
   email: "Email",
   service: "Service",
+  location: "Location",
   message: "Message",
   property_type: "Property type",
   plan: "Preferred plan",
@@ -174,6 +179,7 @@ function buildTemplateParams(payload: ContactFormPayload) {
     phone: withFallback(payload.phone),
     email: withFallback(payload.email),
     service: withFallback(payload.service),
+    location: withFallback(payload.location),
     message: withFallback(payload.message, "No message provided"),
     property_type: withFallback(payload.property_type),
     plan: withFallback(payload.plan),

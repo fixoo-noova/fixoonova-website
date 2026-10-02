@@ -396,6 +396,12 @@ export default function MaintenancePlanPage() {
               <Field label="Phone" name="phone" type="tel" required />
             </div>
             <Field label="Email" name="email" type="email" required />
+            <Field
+              label="Location"
+              name="location"
+              required
+              placeholder="Community / area, e.g. Dubai South, JVC"
+            />
             <div>
               <label htmlFor="property-type" className="text-xs uppercase tracking-widest text-muted-foreground">
                 Property Type
@@ -446,7 +452,7 @@ export default function MaintenancePlanPage() {
                 id="message"
                 name="message"
                 rows={4}
-                placeholder="Property location, number of AC units, any specific concerns..."
+                placeholder="Briefly describe your issue or what you need help with..."
                 className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
               />
             </div>
@@ -475,11 +481,13 @@ function Field({
   name,
   type = "text",
   required,
+  placeholder,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  placeholder?: string;
 }) {
   return (
     <div>
@@ -489,7 +497,8 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+        placeholder={placeholder}
+        className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
       />
     </div>
   );

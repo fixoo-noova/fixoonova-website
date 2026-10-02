@@ -259,14 +259,21 @@ export default function ServicesPage() {
                 </select>
               </div>
 
+              <Field
+                label="Location"
+                name="popup-location"
+                required
+                placeholder="Community / area, e.g. Dubai South, JVC"
+              />
+
               <div>
                 <label htmlFor="popup-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                 <textarea
                   id="popup-message"
                   name="popup-message"
                   rows={4}
-                  required
-                  className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+                  placeholder="Briefly describe your issue or what you need help with..."
+                  className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
                 />
               </div>
 
@@ -417,13 +424,22 @@ export default function ServicesPage() {
             </div>
 
             <div className="mt-5">
+              <Field
+                label="Location"
+                name="location"
+                required
+                placeholder="Community / area, e.g. Dubai South, JVC"
+              />
+            </div>
+
+            <div className="mt-5">
               <label htmlFor="message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
               <textarea
                 id="message"
                 name="message"
                 rows={5}
-                required
-                className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+                placeholder="Briefly describe your issue or what you need help with..."
+                className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
               />
             </div>
 
@@ -452,11 +468,13 @@ function Field({
   name,
   type = "text",
   required,
+  placeholder,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  placeholder?: string;
 }) {
   return (
     <div>
@@ -466,7 +484,8 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+        placeholder={placeholder}
+        className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
       />
     </div>
   );

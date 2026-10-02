@@ -195,6 +195,12 @@ export default function ContactPage() {
               ))}
             </select>
           </div>
+          <Field
+            label="Location"
+            name="location"
+            required
+            placeholder="Community / area, e.g. Dubai South, JVC"
+          />
           <div>
             <label htmlFor="message" className="text-xs tracking-widest text-muted-foreground uppercase">
               Message
@@ -203,8 +209,8 @@ export default function ContactPage() {
               id="message"
               name="message"
               rows={5}
-              required
-              className="mt-2 w-full bg-background border border-input rounded-lg px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+              placeholder="Briefly describe your issue or what you need help with..."
+              className="mt-2 w-full bg-background border border-input rounded-lg px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
             />
           </div>
           <button
@@ -231,11 +237,13 @@ function Field({
   name,
   type = "text",
   required,
+  placeholder,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
+  placeholder?: string;
 }) {
   return (
     <div>
@@ -245,7 +253,8 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="mt-2 w-full bg-background border border-input rounded-lg px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+        placeholder={placeholder}
+        className="mt-2 w-full bg-background border border-input rounded-lg px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
       />
     </div>
   );

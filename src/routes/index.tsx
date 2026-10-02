@@ -422,6 +422,8 @@ export default function IndexPage() {
                 <PopupField label="Phone" name="popup-phone" type="tel" required />
               </div>
 
+              <PopupField label="Email" name="popup-email" type="email" required />
+
               <div>
                 <label htmlFor="popup-service" className="text-xs uppercase tracking-widest text-muted-foreground">Service</label>
                 <select
@@ -442,14 +444,21 @@ export default function IndexPage() {
                 </select>
               </div>
 
+              <PopupField
+                label="Location"
+                name="popup-location"
+                required
+                placeholder="Community / area, e.g. Dubai South, JVC"
+              />
+
               <div>
                 <label htmlFor="popup-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                 <textarea
                   id="popup-message"
                   name="popup-message"
                   rows={3}
-                  required
-                  className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+                  placeholder="Briefly describe your issue or what you need help with..."
+                  className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
                 />
               </div>
 
@@ -664,14 +673,21 @@ export default function IndexPage() {
                   </select>
                 </div>
 
+                <PopupField
+                  label="Location"
+                  name="video-location"
+                  required
+                  placeholder="Community / area, e.g. Dubai South, JVC"
+                  compact
+                />
+
                 <div>
                   <label htmlFor="video-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                   <textarea
                     id="video-message"
                     name="video-message"
                     rows={2}
-                    placeholder="Describe your issue or preferred visit time..."
-                    required
+                    placeholder="Briefly describe your issue or what you need help with..."
                     className="mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
                   />
                 </div>
@@ -1274,14 +1290,21 @@ export default function IndexPage() {
                 </select>
               </div>
 
+              <PopupField
+                label="Location"
+                name="home-location"
+                required
+                placeholder="Community / area, e.g. Dubai South, JVC"
+              />
+
               <div>
                 <label htmlFor="home-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
                 <textarea
                   id="home-message"
                   name="home-message"
                   rows={7}
-                  required
-                  className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none transition"
+                  placeholder="Briefly describe your issue or what you need help with..."
+                  className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition"
                 />
               </div>
 
@@ -1312,12 +1335,14 @@ function PopupField({
   type = "text",
   required,
   compact,
+  placeholder,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
   compact?: boolean;
+  placeholder?: string;
 }) {
   return (
     <div>
@@ -1327,7 +1352,8 @@ function PopupField({
         name={name}
         type={type}
         required={required}
-        className={`w-full rounded-lg border border-input bg-background text-sm focus:border-primary focus:outline-none transition ${
+        placeholder={placeholder}
+        className={`w-full rounded-lg border border-input bg-background text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none transition ${
           compact ? "mt-1.5 px-3 py-2.5" : "mt-2 px-4 py-3"
         }`}
       />
