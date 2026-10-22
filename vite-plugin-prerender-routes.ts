@@ -89,16 +89,34 @@ function copyDir(src: string, dest: string, skipNames: Set<string> = new Set()) 
   }
 }
 
+function seedUploadsPlaceholder(distDir: string) {
+  // Never copy local/server upload images into dist. Deploying that folder
+  // over public_html/uploads wipes live blog images on Hostinger.
+  const uploadsDir = path.join(distDir, "uploads");
+  fs.mkdirSync(uploadsDir, { recursive: true });
+  const htaccessSrc = path.join(process.cwd(), "uploads", ".htaccess");
+  const htaccessDest = path.join(uploadsDir, ".htaccess");
+  if (fs.existsSync(htaccessSrc)) {
+    fs.copyFileSync(htaccessSrc, htaccessDest);
+  }
+  fs.writeFileSync(path.join(uploadsDir, ".gitkeep"), "");
+  fs.writeFileSync(
+    path.join(uploadsDir, "DO_NOT_OVERWRITE.txt"),
+    [
+      "This folder only exists so the path is present after a fresh install.",
+      "On Hostinger, NEVER replace public_html/uploads when deploying a new build.",
+      "Upload/extract dist without overwriting the existing uploads folder,",
+      "or skip this folder entirely so live blog images stay intact.",
+      "",
+    ].join("\n"),
+  );
+}
+
 function copyHostingerBackend(distDir: string) {
   const root = process.cwd();
   copyDir(path.join(root, "api"), path.join(distDir, "api"), new Set(["config.php"]));
-  copyDir(path.join(root, "uploads"), path.join(distDir, "uploads"));
   copyDir(path.join(root, "sql"), path.join(distDir, "sql"));
-
-  // Ensure uploads exists even if empty
-  fs.mkdirSync(path.join(distDir, "uploads"), { recursive: true });
-  const keep = path.join(distDir, "uploads", ".gitkeep");
-  if (!fs.existsSync(keep)) fs.writeFileSync(keep, "");
+  seedUploadsPlaceholder(distDir);
 }
 
 export function prerenderRouteHtml(): Plugin {
@@ -122,9 +140,12 @@ export function prerenderRouteHtml(): Plugin {
         fs.writeFileSync(path.join(outDir, "index.html"), html);
       }
 
-      // Hostinger deploys only `dist` include PHP API + uploads every build
+      // Hostinger: ship api/ + sql/, but do not replace live uploads images
       copyHostingerBackend(distDir);
-      console.log("Hostinger: copied api/, uploads/, sql/ into dist/");
+      console.log("Hostinger: copied api/ and sql/ into dist/");
+      console.log(
+        "Hostinger: uploads/ is a placeholder only. Do NOT overwrite public_html/uploads on deploy.",
+      );
     },
   };
 }
